@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import PortfolioPage from "..";
 
-const Layout = () => {
+export const Layout = () => {
   return (
     <div>
       <PortfolioPage />
@@ -13,5 +13,3 @@ const Layout = () => {
     </div>
   );
 };
-
-export default Layout;

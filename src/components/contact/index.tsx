@@ -1,11 +1,21 @@
-import { useState, ChangeEvent } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 
 export const Contact = () => {
+  const [contactOpen, setContactOpen] = useState<boolean>(false);
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+
+  const toggleContact = () => {
+    setContactOpen(!contactOpen);
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // ... form submission logic ...
+  };
 
   const handleInputChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

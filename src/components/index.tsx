@@ -1,6 +1,6 @@
 import PortfolioWork from "./portfolio-work/index";
 import { projects } from "../projects/projectList";
-import { About } from "./about";
+import { About } from "./about/about";
 import { Contact } from "./contact";
 
 const PortfolioPage = () => {

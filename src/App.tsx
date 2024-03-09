@@ -4,6 +4,7 @@ import { ProjectsReducer } from "./reducers/ProjectsReducer";
 import { projects } from "./projects/projectList";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Router";
+import { GlobalStyles } from "./components/styled/global-styles/globalStyles";
 
 function App() {
   const [projectStateList, dispatch] = useReducer(
@@ -19,6 +20,7 @@ function App() {
   });
   return (
     <>
+      <GlobalStyles />
       <RouterProvider router={router}></RouterProvider>
     </>
   );
