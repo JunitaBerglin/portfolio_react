@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import {
+  colors,
+  desktopStyles,
+} from "../Global/style-variables/variables";
 
 export const AboutWrapper = styled.div`
   display: flex;
@@ -6,7 +10,10 @@ export const AboutWrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  // Use your mixins and variables as JavaScript logic/functions and constants
+
+  ${desktopStyles} {
+    flex-direction: row;
+  }
 `;
 
 export const ImgWrapper = styled.div`
@@ -18,13 +25,14 @@ export const ImgWrapper = styled.div`
 
 export const AboutDescription = styled.p`
   width: 80%;
-  color: #ffffff;
-  background-color: black;
+  color: ${colors.primary};
+  background-color: ${colors.secondaryDark};
   padding: 30px;
   border-radius: 60px;
+  font-family: "thin";
   margin-top: 10px;
-  // Include your media query logic here
-  @media (min-width: 768px) {
+
+  ${desktopStyles} {
     width: 45%;
   }
 `;
@@ -33,8 +41,9 @@ export const AboutImage = styled.img`
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  border: solid 1px #ffffff;
-  @media (min-width: 768px) {
+  border: solid 1px ${colors.secondaryDark};
+
+  ${desktopStyles} {
     height: 200px;
     width: 200px;
   }
