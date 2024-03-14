@@ -4,6 +4,13 @@ import {
   desktopStyles,
 } from "../Global/style-variables/variables";
 
+export const PortfolioWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const WrapperOfJunita = styled.div`
   height: 20vh;
   display: flex;
@@ -74,5 +81,3 @@ export const Move = styled.p`
     animation-delay: -2s;
   }
 `;
-
-// ... continue with other components

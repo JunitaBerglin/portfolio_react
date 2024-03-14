@@ -6,21 +6,20 @@ import { Contact } from "../src/Components/Contact/Contact";
 import PortfolioWork from "../src/Components/PortfolioWork/PortfolioWork";
 import { PortfolioProject } from "../src/Components/PortfolioWork/PortfolioWork.types";
 import HomePage from "../src/Components/Home/Home";
+import { Layout } from "../src/Components/Global/Layout";
+import PortfolioAccordion from "../src/Components/Accordion/PortfolioAccordion";
 
-interface PortfolioPageProps {
+interface PortfolioAccordionProps {
   portfolioWorks: PortfolioProject[];
 }
 
-const PortfolioPage: React.FC<PortfolioPageProps> = ({
+const PortfolioPage: React.FC<PortfolioAccordionProps> = ({
   portfolioWorks,
 }) => {
   return (
-    <>
-      <HomePage />
-      <About />
-      <PortfolioWork projectItems={portfolioWorks} />
-      <Contact />
-    </>
+    <Layout>
+      <PortfolioAccordion projectItems={portfolioWorks} />
+    </Layout>
   );
 };
 

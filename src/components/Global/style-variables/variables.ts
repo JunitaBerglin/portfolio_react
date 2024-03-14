@@ -8,8 +8,10 @@ export const colors = {
 
 export const desktopStyles = css`
   @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-evenly;
+    & {
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
   }
 `;
 
@@ -37,12 +39,14 @@ export const mixins = {
       transition: 700ms;
     }
   `,
+
   image: css`
     height: 150px;
     width: 250px;
     border-radius: 30px;
     border: solid 0.8px #fff;
   `,
+
   project: css`
     background-color: #000;
     color: #fff;

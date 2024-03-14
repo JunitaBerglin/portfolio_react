@@ -16,13 +16,6 @@ export const AboutWrapper = styled.div`
   }
 `;
 
-export const ImgWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-`;
-
 export const AboutDescription = styled.p`
   width: 80%;
   color: ${colors.primary};
@@ -33,18 +26,45 @@ export const AboutDescription = styled.p`
   margin-top: 10px;
 
   ${desktopStyles} {
-    width: 45%;
+    width: 50%;
   }
 `;
 
 export const AboutImage = styled.img`
+  height: 200px;
+  width: 200px;
+
+  ${desktopStyles} {
+    height: 280px;
+    width: 280px;
+  }
+`;
+
+export const ImgWrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
   height: 150px;
   width: 150px;
   border-radius: 50%;
   border: solid 1px ${colors.secondaryDark};
+  overflow: hidden;
+  margin-bottom: 3em;
+`;
 
-  ${desktopStyles} {
-    height: 200px;
-    width: 200px;
-  }
+export const ToggleAboutButton = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const AboutSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
 `;
