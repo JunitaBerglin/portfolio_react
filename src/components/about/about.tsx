@@ -1,15 +1,16 @@
 import React from "react";
-import {
-  AboutCard,
-  AboutWrapper,
-  CardContentAbout,
-  ImgWrapper,
-} from "./About.styles";
+
 import { AboutSection } from "../Home/Home.styles";
 import {
   CardImageFront,
   CardInner,
 } from "../PortfolioWork/PortfolioWork.styles";
+import {
+  AboutCard,
+  AboutWrapper,
+  CardContentAbout,
+  ImgWrapper,
+} from "./about.styles";
 
 export const About: React.FC = () => {
   return (

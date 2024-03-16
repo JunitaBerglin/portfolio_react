@@ -70,7 +70,6 @@ export const CardImageFront = styled.img`
   overflow: hidden;
   top: 0;
   left: 0;
-  background: url(${(props) => props.src}) no-repeat center / cover;
 `;
 
 export const CardContent = styled(CardFace)`
@@ -84,7 +83,7 @@ export const CardContent = styled(CardFace)`
   transform: rotateY(180deg);
 `;
 
-export const LiveDemo = styled.button`
+export const LiveDemo = styled.div`
   padding: 7px;
   border-radius: 8px;
   background: #ffad01;

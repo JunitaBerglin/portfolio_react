@@ -18,8 +18,9 @@ const PortfolioWork: React.FC<PortfolioProps> = ({
 }) => {
   const router = useRouter();
 
-  const handleLiveDemoClick = (url: string) => {
-    router.push(url);
+  const handleLiveDemoClick = (projectName: string) => {
+    const projectUrl = `https://junitaberglin-${projectName}.netlify.app/`;
+    window.open(projectUrl, "_blank");
   };
 
   return (
@@ -38,9 +39,7 @@ const PortfolioWork: React.FC<PortfolioProps> = ({
                   {project.description}
                 </ProjectDescription>
                 <LiveDemo
-                  onClick={() =>
-                    handleLiveDemoClick(project.slug || "#")
-                  }>
+                  onClick={() => handleLiveDemoClick(project.slug)}>
                   Go take a look!
                 </LiveDemo>
               </CardContent>

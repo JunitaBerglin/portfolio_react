@@ -21,7 +21,6 @@ export const AboutImage = styled(CardImageFront)`
   height: 100%;
   backface-visibility: hidden;
   overflow: hidden;
-  background: url(${(props) => props.src}) no-repeat center / cover;
 `;
 
 export const ImgWrapper = styled.div`
