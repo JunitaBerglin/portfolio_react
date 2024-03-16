@@ -24,7 +24,7 @@ export const HomeWrapper = styled.div`
   height: 50em;
 
   @media (min-width: 768px) {
-    height: 60em;
+    height: 70em;
   }
 `;
 
@@ -33,29 +33,26 @@ export const WrapperOfJunita = styled.div`
   margin-top: 15em;
 
   @media (min-width: 768px) {
-    height: 40vh;
   }
 `;
 
 export const BigName = styled.div`
   display: flex;
-  font-size: 30vw;
+  font-size: 27vw;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   @media (min-width: 768px) {
-    margin-top: 118px;
     font-size: 280px;
   }
 `;
 
-export const WrapperOfBerglin = styled(WrapperOfJunita)`
+export const WrapperOfBerglin = styled.div`
   margin-bottom: 15em;
   margin-top: 0em;
 
   @media (min-width: 768px) {
-    height: 20vh;
-    margin-bottom: 10em;
   }
 `;
 
@@ -69,6 +66,8 @@ export const MiddleMovement = styled.div`
   @media (min-width: 768px) {
     height: 40px;
     width: 70em;
+    padding-bottom: 0;
+    margin-top: 90px;
   }
 `;
 
@@ -82,6 +81,7 @@ export const MiddleMovementText = styled.div`
 
   @media (min-width: 768px) {
     font-size: 32px;
+    padding-bottom: 0;
   }
 `;
 
