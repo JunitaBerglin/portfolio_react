@@ -1,5 +1,5 @@
 import StyledComponentsRegistry from "lib/registry";
-import { PortfolioWrapper } from "@/Components/Home/Home.styles";
+import { PortfolioWrapper } from "./Home/Home.styles";
 
 interface LayoutProps {
   children: React.ReactNode;

@@ -1,6 +1,6 @@
 import React from "react";
 import { AppProps } from "next/app";
-import { Layout } from "@/Components/Global/Layout";
+import { Layout } from "@/src/Components/Layout";
 
 const MyPortfolioApp = ({ Component, pageProps }: AppProps) => {
   return (

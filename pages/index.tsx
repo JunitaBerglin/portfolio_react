@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import client from "../lib/apollo-client";
 import { PortfolioProject } from "../src/Components/PortfolioWork/PortfolioWork.types";
 import dynamic from "next/dynamic";
-import { Layout } from "@/Components/Global/Layout";
+import { Layout } from "@/src/Components/Layout";
 
 const PortfolioAccordionNoSSR = dynamic(
   () => import("../src/Components/Accordion/PortfolioAccordion"),

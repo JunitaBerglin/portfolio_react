@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "@/Components/Global/style-variables/variables";
+import { colors } from "../Global/style-variables/variables";
 
 export const WorkWrapper = styled.div`
   display: flex;
