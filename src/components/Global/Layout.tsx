@@ -1,5 +1,5 @@
-import StyledComponentsRegistry from "../../lib/registry";
-import { PortfolioWrapper } from "../../src/Components/Home/Home.styles";
+import StyledComponentsRegistry from "lib/registry";
+import { PortfolioWrapper } from "@/Components/Home/Home.styles";
 import { GlobalStyles } from "./global-styles/globalStyles";
 
 interface LayoutProps {
