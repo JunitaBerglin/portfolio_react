@@ -2,8 +2,8 @@ import { gql } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import client from "../lib/apollo-client";
 import { PortfolioProject } from "../src/Components/PortfolioWork/PortfolioWork.types";
-import { Layout } from "../src/Components/Global/Layout";
 import dynamic from "next/dynamic";
+import { Layout } from "./Global/Layout";
 
 const PortfolioAccordionNoSSR = dynamic(
   () => import("../src/Components/Accordion/PortfolioAccordion"),

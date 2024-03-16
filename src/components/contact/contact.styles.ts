@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { desktopStyles } from "../Global/style-variables/variables";
 import { LiveDemo } from "../PortfolioWork/PortfolioWork.styles";
+import { desktopStyles } from "../../../pages/Global/style-variables/variables";
 
 export const ContactSection = styled.section`
   min-height: 60vh;

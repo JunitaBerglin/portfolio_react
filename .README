@@ -1,0 +1,8 @@
+#Junita Berglins Portfolio:
+This is a project in React, Typescript, next.js and styled components. 
+
+The data is being fetched from datoCMS (headless cms). 
+
+To run the project: 
+'npm install',
+'npm run dev'

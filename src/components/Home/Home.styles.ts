@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { colors } from "../Global/style-variables/variables";
+import { colors } from "../../../pages/Global/style-variables/variables";
 
 export const AboutSection = styled.div`
   display: flex;

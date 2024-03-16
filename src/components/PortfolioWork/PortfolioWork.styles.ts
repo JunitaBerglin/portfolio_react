@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../Global/style-variables/variables";
+import { colors } from "../../../pages/Global/style-variables/variables";
 
 export const WorkWrapper = styled.div`
   display: flex;
@@ -84,7 +84,7 @@ export const CardContent = styled(CardFace)`
   transform: rotateY(180deg);
 `;
 
-export const LiveDemo = styled.div`
+export const LiveDemo = styled.button`
   padding: 7px;
   border-radius: 8px;
   background: #ffad01;

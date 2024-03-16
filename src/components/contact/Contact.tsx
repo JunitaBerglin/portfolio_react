@@ -1,5 +1,6 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import {
+  Button,
   ContactSection,
   Form,
   FormContainer,
@@ -154,12 +155,12 @@ export const Contact = () => {
             value={message}
             onChange={handleInputChange}></TextArea>
         </FormContainer>
-        <LiveDemo
+        <Button
           onClick={() => {
             handleSubmit;
           }}>
           Submit
-        </LiveDemo>
+        </Button>
       </Form>
       <Text>Or, email me directly at junita.berglin@gmail.com!</Text>
     </ContactSection>

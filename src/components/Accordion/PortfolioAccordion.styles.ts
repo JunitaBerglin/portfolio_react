@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {
   colors,
   desktopStyles,
-} from "../Global/style-variables/variables";
+} from "../../../pages/Global/style-variables/variables";
 
 export const SectionContainer = styled.nav`
   cursor: pointer;
