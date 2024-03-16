@@ -1,93 +1,124 @@
 import styled from "styled-components";
-import {
-  desktopStyles,
-  linkStyles,
-} from "../Global/style-variables/variables";
 import { colors } from "../Global/style-variables/variables";
 
 export const WorkWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90vw;
   justify-content: center;
   align-items: center;
+  @media (min-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export const Project = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 80%;
-  justify-content: center;
-  align-items: center;
   margin: 30px;
-  font-family: "thin", sans-serif;
 
-  ${desktopStyles} {
-    flex-direction: row;
-    justify-content: space-evenly;
+  @media (min-width: 768px) {
+    justify-content: center;
     width: 80%;
-    margin-left: 8%;
   }
 `;
 
-export const ProjectImage = styled.img`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  ${desktopStyles} {
-    height: 50%;
-    width: 40%;
-    margin: 20px;
-  }
-
+export const Card = styled.div`
+  position: relative;
+  width: 380px;
+  height: 230px;
+  border-radius: 10px;
+  perspective: 1000px;
+  box-shadow: 0 0 0 5px #ffffff80;
+  transition: box-shadow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   &:hover {
-    transition: 500ms;
-    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
   }
 `;
 
-export const ProjectName = styled.h3`
-  color: ${colors.primary};
+export const CardInner = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+  ${Card}:hover & {
+    transform: rotateY(180deg);
+  }
+`;
+
+export const CardFace = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+`;
+
+export const CardImageFront = styled.img`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background: url(${(props) => props.src}) no-repeat center / cover;
+`;
+
+export const CardContent = styled(CardFace)`
+  background-color: #f2f2f2;
+  padding: 5px;
+  box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 15px;
+  justify-content: center;
+  transform: rotateY(180deg);
 `;
 
-export const ProjectDescription = styled.p`
-  color: ${colors.primary};
-  padding: 10px;
-  width: 85%;
-`;
-
-export const WebsiteLink = styled.a`
-  color: ${colors.secondaryDark};
-  background-color: ${colors.secondaryDark};
-  padding: 4px;
-  border-radius: 5px;
-  ${linkStyles}
-`;
-
-export const Button = styled.button`
+export const LiveDemo = styled.div`
   padding: 7px;
-  border-radius: 5px;
+  border-radius: 8px;
+  background: #ffad01;
+  border: none;
+  color: black;
+  text-decoration: none;
+  font-family: "thin";
+  display: inline-block;
+  margin-top: auto;
+  font-size: 20px;
+`;
+
+export const ProjectName = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "thin";
+  font-weight: bold;
+  font-size: 24px;
+  margin: 10px;
 `;
 
-export const ToggleIcon = styled.i`
+export const ProjectDescription = styled.div`
+  padding: 5px;
+  font-family: "thin";
+  font-size: 20px;
+  padding-bottom: 1em;
+`;
+
+export const ToggleIcon = styled.div`
   cursor: pointer;
   color: ${colors.secondaryDark};
 `;
 
 export const OpenIcon = styled(ToggleIcon)`
   transform: rotate(180deg);
-`;
-
-export const ToggleButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
 `;

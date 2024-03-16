@@ -1,40 +1,61 @@
-import styled, { keyframes, css } from "styled-components";
-import {
-  colors,
-  desktopStyles,
-} from "../Global/style-variables/variables";
+import styled, { keyframes } from "styled-components";
+import { colors } from "../Global/style-variables/variables";
+
+export const AboutSection = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export const PortfolioWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (min-width: 768px) {
+    color: black;
+  }
+`;
+
+export const HomeWrapper = styled.div`
+  font-family: "lemon";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 50em;
+
+  @media (min-width: 768px) {
+    height: 60em;
+  }
 `;
 
 export const WrapperOfJunita = styled.div`
   height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 15em;
 
-  ${desktopStyles} {
+  @media (min-width: 768px) {
     height: 40vh;
   }
 `;
 
 export const BigName = styled.div`
-  margin-top: 100px;
-  font-size: 80px;
-  font-weight: bold;
+  display: flex;
+  font-size: 30vw;
+  justify-content: center;
+  align-items: center;
 
-  ${desktopStyles} {
+  @media (min-width: 768px) {
     margin-top: 118px;
+    font-size: 280px;
   }
 `;
 
 export const WrapperOfBerglin = styled(WrapperOfJunita)`
-  ${desktopStyles} {
-    height: 40vh;
+  margin-bottom: 15em;
+  margin-top: 0em;
+
+  @media (min-width: 768px) {
+    height: 20vh;
+    margin-bottom: 10em;
   }
 `;
 
@@ -42,24 +63,25 @@ export const MiddleMovement = styled.div`
   border: solid black;
   border-radius: 50px;
   background-color: black;
-  width: 95%;
+  width: 98vw;
   height: 30px;
 
-  ${desktopStyles} {
+  @media (min-width: 768px) {
     height: 40px;
-    width: 80%;
+    width: 70em;
   }
 `;
 
 export const MiddleMovementText = styled.div`
-  margin-top: 2px;
   color: ${colors.primary};
   display: flex;
   justify-content: space-between;
+  font-family: "thin";
+  font-size: 25px;
+  padding-bottom: 3em;
 
-  ${desktopStyles} {
-    margin-top: 4px;
-    margin-bottom: 10px;
+  @media (min-width: 768px) {
+    font-size: 32px;
   }
 `;
 
@@ -73,7 +95,7 @@ const moveLeft = keyframes`
   }
 `;
 
-export const Move = styled.p`
+export const Move = styled.div`
   animation: ${moveLeft} 20s infinite linear;
   color: ${colors.primary};
 

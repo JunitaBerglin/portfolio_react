@@ -1,60 +1,59 @@
 import { gql } from "@apollo/client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import client from "../lib/apollo-client";
-import { About } from "../src/Components/About/About";
-import { Contact } from "../src/Components/Contact/Contact";
-import PortfolioWork from "../src/Components/PortfolioWork/PortfolioWork";
 import { PortfolioProject } from "../src/Components/PortfolioWork/PortfolioWork.types";
-import HomePage from "../src/Components/Home/Home";
 import { Layout } from "../src/Components/Global/Layout";
-import PortfolioAccordion from "../src/Components/Accordion/PortfolioAccordion";
+import dynamic from "next/dynamic";
 
-interface PortfolioAccordionProps {
-  portfolioWorks: PortfolioProject[];
-}
+const PortfolioAccordionNoSSR = dynamic(
+  () => import("../src/Components/Accordion/PortfolioAccordion"),
+  { ssr: false }
+);
 
-const PortfolioPage: React.FC<PortfolioAccordionProps> = ({
-  portfolioWorks,
-}) => {
+const PortfolioPage: React.FC = () => {
+  const [portfolioWorks, setPortfolioWorks] = useState<
+    PortfolioProject[]
+  >([]);
+
+  useEffect(() => {
+    const fetchPortfolioWorks = async () => {
+      const { data } = await client.query({
+        query: gql`
+          query MyQuery {
+            allPortfolioWorks {
+              description
+              image {
+                url
+              }
+              name
+              projectId
+              slug
+            }
+          }
+        `,
+      });
+
+      const works = data.allPortfolioWorks.map(
+        (work: PortfolioProject) => ({
+          name: work.name,
+          image: work.image ?? { url: "/default-image.jpg" },
+          description: work.description,
+          projectId: work.projectId,
+          slug: work.slug,
+        })
+      );
+
+      setPortfolioWorks(works);
+    };
+
+    fetchPortfolioWorks();
+  }, []);
+
   return (
     <Layout>
-      <PortfolioAccordion projectItems={portfolioWorks} />
+      <PortfolioAccordionNoSSR projectItems={portfolioWorks} />
     </Layout>
   );
 };
-
-export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query MyQuery {
-        allPortfolioWorks {
-          description
-          name
-          projectId
-          slug
-          image {
-            url
-          }
-        }
-      }
-    `,
-  });
-
-  const portfolioWorks = data.allPortfolioWorks.map(
-    (work: PortfolioProject) => ({
-      name: work.name,
-      imageUrl: work.image.url,
-      description: work.description,
-      projectId: work.projectId,
-      slug: work.slug,
-    })
-  );
-
-  return {
-    props: {
-      portfolioWorks,
-    },
-  };
-}
 
 export default PortfolioPage;

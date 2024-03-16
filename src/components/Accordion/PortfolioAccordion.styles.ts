@@ -1,25 +1,32 @@
 import styled from "styled-components";
-import { desktopStyles } from "../Global/style-variables/variables";
+import {
+  colors,
+  desktopStyles,
+} from "../Global/style-variables/variables";
 
-export const SectionContainer = styled.div`
+export const SectionContainer = styled.nav`
+  cursor: pointer;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 30%;
+  background-color: ${colors.primary};
+
   &:hover {
-    background-color: #ffffdf;
-    transition: 2000ms;
+    background-color: ${colors.secondaryLight};
+    transition: background-color 2000ms;
   }
 `;
 
 export const ProjectText = styled.div`
   color: black;
-  text-decoration: none;
-  font-family: "thin";
-  font-size: 50px;
+  font-family: "lemon";
+  font-size: 80px;
+  margin: 0 15px;
+  position: relative;
 
   ${desktopStyles} {
-    font-size: 80px;
+    font-size: 90px;
+    margin: 0 30px;
   }
 `;

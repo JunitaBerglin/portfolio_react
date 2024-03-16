@@ -1,47 +1,25 @@
 import { createGlobalStyle } from "styled-components";
-import { colors, desktopStyles } from "../style-variables/variables";
+import { colors } from "../style-variables/variables";
 
 export const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: "thin";
-    src: url("../attributes/webly-sleek/weblysleekuil.ttf") format("truetype");
+    src: url("/AlumniSansPinstripe-Regular.ttf") format("opentype");
   }
+
   @font-face {
     font-family: "lemon";
-    src: url("../attributes/lemon-milk-font/LemonMilkLight-owxMq.otf") format("opentype");
+    src: url("/Alatsi/Alatsi-Regular.ttf") format("opentype");
   }
-
-
+/* 
   html {
     scroll-behavior: smooth;
-  }
+  } */
 
   body {
     margin: 0;
     background-color: ${colors.primary};
-    font-family: "thin";
-    display: flex;
-    flex-direction: column;
+    scroll-behavior: smooth;
   }
 
-  h1 {
-    font-size: 80px;
-    color: #000000;
-    ${desktopStyles} {
-      font-size: 200px;
-    }
-  }
-
-  p {
-    font-size: 12px;
-    ${desktopStyles} {
-      font-size: 17px;
-    }
-  }
-
-  a:hover {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
 `;

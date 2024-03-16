@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { desktopStyles } from "../Global/style-variables/variables";
+import { LiveDemo } from "../PortfolioWork/PortfolioWork.styles";
 
 export const ContactSection = styled.section`
   min-height: 60vh;
@@ -8,11 +9,11 @@ export const ContactSection = styled.section`
   justify-content: flex-start;
   align-items: center;
   max-width: 100vw;
-  font-family: "lemon";
+  font-family: "thin";
 `;
 
 export const Title = styled.h2`
-  font-size: 1rem;
+  font-size: 2rem;
   width: 80%;
   padding: 30px;
 
@@ -21,23 +22,19 @@ export const Title = styled.h2`
   }
 `;
 
-export const Text = styled.p`
-  font-size: 1.5rem;
+export const Text = styled.div`
+  font-size: 1em;
   text-align: center;
   width: 100%;
 
   ${desktopStyles} {
-    font-size: 2rem; // Adjust as needed
+    font-size: 1.8;
   }
 `;
 
 export const Form = styled.form`
   width: 80vw;
   text-align: center;
-
-  ${desktopStyles} {
-    width: 60vw;
-  }
 `;
 
 export const FormContainer = styled.div`
@@ -49,10 +46,8 @@ export const FormContainer = styled.div`
 export const Label = styled.label`
   text-align: start;
   padding: 5px;
-
-  ${desktopStyles} {
-    cursor: pointer;
-  }
+  font-size: 24px;
+  margin-top: 6px;
 `;
 
 export const Input = styled.input`
@@ -80,11 +75,10 @@ export const TextArea = styled.textarea`
   }
 `;
 
-export const Button = styled.button`
-  font-size: 1rem;
+export const Button = styled(LiveDemo)`
+  font-size: 1.3;
   border: 1px solid #000;
   border-radius: 5px;
-  height: 30px;
   margin-top: 20px;
   margin-bottom: 100px;
 
@@ -92,9 +86,5 @@ export const Button = styled.button`
     background-color: #ffffdf;
     border: 1px solid #000;
     color: #000;
-
-    ${desktopStyles} {
-      cursor: pointer;
-    }
   }
 `;

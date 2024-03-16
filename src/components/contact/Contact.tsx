@@ -1,6 +1,5 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import {
-  Button,
   ContactSection,
   Form,
   FormContainer,
@@ -10,23 +9,18 @@ import {
   TextArea,
   Title,
 } from "./Contact.styles";
+import { LiveDemo } from "../PortfolioWork/PortfolioWork.styles";
 
 export const Contact = () => {
-  const [contactOpen, setContactOpen] = useState<boolean>(false);
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
-  const toggleContact = () => {
-    setContactOpen(!contactOpen);
-  };
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Basic validation example
     if (
       !firstName.trim() ||
       !lastName.trim() ||
@@ -37,25 +31,44 @@ export const Contact = () => {
       return;
     }
 
-    // Here you might send the data to a server manually if not using FormSubmit
-    console.log("Submitting form ==>", {
-      firstName,
-      lastName,
-      email,
-      phone,
-      message,
-    });
+    // Form data for submission
+    const formData = new FormData();
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("message", message);
 
-    // Since you're using FormSubmit.co, you might redirect or clear the form here
-    // For now, let's just clear the form fields
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/68a04b80f29cd1ae7d696341179067a2",
+        {
+          method: "POST",
+          body: formData, // Sending as FormData
+          headers: {
+            Accept: "application/json", // Expecting JSON response
+          },
+        }
+      );
 
-    // Optionally, provide feedback or redirect the user
-    alert("Thank you for your message!");
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      console.log("Submission successful");
+      alert("Thank you for your message!");
+
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+    } catch (error) {
+      console.error("Submission failed", error);
+      alert(
+        "There was a problem with your submission. Please try again."
+      );
+    }
   };
 
   const handleInputChange = (
@@ -88,8 +101,7 @@ export const Contact = () => {
       <Title>Get in touch!</Title>
       <Form
         action="https://formsubmit.co/68a04b80f29cd1ae7d696341179067a2"
-        method="POST"
-      >
+        method="POST">
         <FormContainer>
           <Label htmlFor="firstName">First Name</Label>
           <Input
@@ -140,10 +152,14 @@ export const Contact = () => {
             name="message"
             required
             value={message}
-            onChange={handleInputChange}
-          ></TextArea>
+            onChange={handleInputChange}></TextArea>
         </FormContainer>
-        <Button type="submit">Submit</Button>
+        <LiveDemo
+          onClick={() => {
+            handleSubmit;
+          }}>
+          Submit
+        </LiveDemo>
       </Form>
       <Text>Or, email me directly at junita.berglin@gmail.com!</Text>
     </ContactSection>

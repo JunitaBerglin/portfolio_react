@@ -1,34 +1,54 @@
-import React, { useState } from "react";
+import React from "react";
 import { PortfolioProps } from "./PortfolioWork.types";
 import {
+  Card,
+  CardContent,
+  CardImageFront,
+  CardInner,
+  LiveDemo,
   Project,
   ProjectDescription,
-  ProjectImage,
   ProjectName,
-  WebsiteLink,
   WorkWrapper,
 } from "./PortfolioWork.styles";
+import { useRouter } from "next/router";
 
 const PortfolioWork: React.FC<PortfolioProps> = ({
   projectItems,
 }) => {
+  const router = useRouter();
+
+  const handleLiveDemoClick = (url: string) => {
+    router.push(url);
+  };
+
   return (
-    <>
-      <WorkWrapper>
-        {projectItems.map((project, index) => (
-          <Project key={index}>
-            <ProjectName>{project.name}</ProjectName>
-            <ProjectImage />
-            <ProjectDescription>
-              {project.description}
-            </ProjectDescription>
-            <WebsiteLink href={project.slug}>
-              Test the Site!
-            </WebsiteLink>
-          </Project>
-        ))}
-      </WorkWrapper>
-    </>
+    <WorkWrapper>
+      {projectItems.map((project) => (
+        <Project key={project.projectId}>
+          <Card>
+            <CardInner>
+              <CardImageFront
+                src={project.image.url}
+                alt={project.name}
+              />
+              <CardContent>
+                <ProjectName>{project.name}</ProjectName>
+                <ProjectDescription>
+                  {project.description}
+                </ProjectDescription>
+                <LiveDemo
+                  onClick={() =>
+                    handleLiveDemoClick(project.slug || "#")
+                  }>
+                  Go take a look!
+                </LiveDemo>
+              </CardContent>
+            </CardInner>
+          </Card>
+        </Project>
+      ))}
+    </WorkWrapper>
   );
 };
 

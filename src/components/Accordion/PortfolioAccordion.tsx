@@ -1,46 +1,52 @@
 import React, { useState } from "react";
-
-import { SectionContainer } from "./PortfolioAccordion.styles";
+import {
+  ProjectText,
+  SectionContainer,
+} from "./PortfolioAccordion.styles";
 import { About } from "../About/About";
 import PortfolioWork from "../PortfolioWork/PortfolioWork";
 import { Contact } from "../Contact/Contact";
 import { PortfolioProps } from "../PortfolioWork/PortfolioWork.types";
 import HomePage from "../Home/Home";
+import { ProjectTextCV } from "../CV/cv.styles";
+import { SectionName } from "./PortfolioAccordion.types";
 
 const PortfolioAccordion: React.FC<PortfolioProps> = ({
   projectItems,
 }) => {
-  const [isAboutOpen, setAboutOpen] = useState(false);
-  const [isPortfolioOpen, setPortfolioOpen] = useState(false);
-  const [isContactOpen, setContactOpen] = useState(false);
+  const [openSection, setOpenSection] = useState<SectionName>(null);
 
-  const toggleAbout = () => setAboutOpen(!isAboutOpen);
-  const togglePortfolio = () => setPortfolioOpen(!isPortfolioOpen);
-  const toggleContact = () => setContactOpen(!isContactOpen);
+  const toggleSection = (section: SectionName) => {
+    setOpenSection((prevSection) =>
+      prevSection === section ? null : section
+    );
+  };
+
+  console.log("projekts ==>", projectItems);
 
   return (
     <>
       <HomePage />
-      <button onClick={toggleAbout}>About</button>
-      {isAboutOpen && (
-        <SectionContainer>
-          <About />
-        </SectionContainer>
+      <SectionContainer onClick={() => toggleSection("about")}>
+        <ProjectText>ABOUT</ProjectText>
+      </SectionContainer>
+      {openSection === "about" && <About />}
+
+      <SectionContainer onClick={() => toggleSection("projects")}>
+        <ProjectText>PROJECTS</ProjectText>
+      </SectionContainer>
+      {openSection === "projects" && (
+        <PortfolioWork projectItems={projectItems} />
       )}
 
-      <button onClick={togglePortfolio}>Portfolio</button>
-      {isPortfolioOpen && (
-        <SectionContainer>
-          <PortfolioWork projectItems={projectItems} />
-        </SectionContainer>
-      )}
+      <SectionContainer onClick={() => toggleSection("contact")}>
+        <ProjectText>CONTACT</ProjectText>
+      </SectionContainer>
+      {openSection === "contact" && <Contact />}
 
-      <button onClick={toggleContact}>Contact</button>
-      {isContactOpen && (
-        <SectionContainer>
-          <Contact />
-        </SectionContainer>
-      )}
+      <SectionContainer>
+        <ProjectTextCV href="/cv">CV</ProjectTextCV>
+      </SectionContainer>
     </>
   );
 };

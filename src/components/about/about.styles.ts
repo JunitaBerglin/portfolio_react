@@ -1,70 +1,66 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { desktopStyles } from "../Global/style-variables/variables";
 import {
-  colors,
-  desktopStyles,
-} from "../Global/style-variables/variables";
+  Card,
+  CardFace,
+  CardImageFront,
+} from "../PortfolioWork/PortfolioWork.styles";
 
 export const AboutWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-
   ${desktopStyles} {
-    flex-direction: row;
+    justify-content: center;
   }
 `;
 
-export const AboutDescription = styled.p`
-  width: 80%;
-  color: ${colors.primary};
-  background-color: ${colors.secondaryDark};
-  padding: 30px;
-  border-radius: 60px;
-  font-family: "thin";
-  margin-top: 10px;
-
-  ${desktopStyles} {
-    width: 50%;
-  }
-`;
-
-export const AboutImage = styled.img`
-  height: 200px;
-  width: 200px;
-
-  ${desktopStyles} {
-    height: 280px;
-    width: 280px;
-  }
+export const AboutImage = styled(CardImageFront)`
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background: url(${(props) => props.src}) no-repeat center / cover;
 `;
 
 export const ImgWrapper = styled.div`
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
   height: 150px;
   width: 150px;
-  border-radius: 50%;
-  border: solid 1px ${colors.secondaryDark};
+  border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 3em;
+  margin: auto;
 `;
 
-export const ToggleAboutButton = styled.div`
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const AboutCard = styled(Card)`
+  margin: 25px;
+  position: relative;
+  width: 380px;
+  height: 230px;
+  border-radius: 20px;
+  perspective: 1000px;
+  box-shadow: 0 0 0 5px #ffffff80;
+  transition: box-shadow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  &:hover {
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+  }
 `;
 
-export const AboutSection = styled.div`
+export const CardContentAbout = styled(CardFace)`
+  background-color: #000;
+  padding: 10px;
+  color: #fff;
+  font-family: "thin";
+  font-size: 20px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 30%;
+  justify-content: center;
+  transform: rotateY(180deg);
 `;
