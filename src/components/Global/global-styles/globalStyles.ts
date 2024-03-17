@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { colors } from "../style-variables/variables";
+import { colors } from "@/Components/Global/style-variables/variables";
 
 export const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -11,10 +11,10 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "lemon";
     src: url("/Alatsi/Alatsi-Regular.ttf") format("opentype");
   }
-/* 
+
   html {
     scroll-behavior: smooth;
-  } */
+  }
 
   body {
     margin: 0;

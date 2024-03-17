@@ -17,14 +17,12 @@ export const AboutWrapper = styled.div`
 `;
 
 export const AboutImage = styled(CardImageFront)`
-  width: 100%;
-  height: 100%;
+  width: 70px;
   backface-visibility: hidden;
   overflow: hidden;
 `;
 
 export const ImgWrapper = styled.div`
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;

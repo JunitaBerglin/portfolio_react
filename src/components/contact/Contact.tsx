@@ -9,8 +9,7 @@ import {
   Text,
   TextArea,
   Title,
-} from "./Contact.styles";
-import { LiveDemo } from "../PortfolioWork/PortfolioWork.styles";
+} from "@/Components/Contact/contact.styles";
 
 export const Contact = () => {
   const [firstName, setFirstName] = useState<string>("");

@@ -7,7 +7,7 @@ import {
   MiddleMovementText,
   Move,
   HomeWrapper,
-} from "./Home.styles";
+} from "@/Components/Home/Home.styles";
 
 const HomePage: React.FC = () => {
   return (

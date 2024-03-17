@@ -3,13 +3,13 @@ import {
   ProjectText,
   SectionContainer,
 } from "./PortfolioAccordion.styles";
-import { About } from "../About/About";
-import PortfolioWork from "../PortfolioWork/PortfolioWork";
-import { Contact } from "../Contact/Contact";
+import { About } from "@/Components/About/About";
+import PortfolioWork from "@/Components/PortfolioWork/PortfolioWork";
+import { Contact } from "@/Components/Contact/Contact";
 import { PortfolioProps } from "../PortfolioWork/PortfolioWork.types";
-import HomePage from "../Home/Home";
+import HomePage from "@/Components/Home/Home";
 import { SectionName } from "./PortfolioAccordion.types";
-import { ProjectTextCV } from "../CV/cv.styles";
+import { ProjectTextCV } from "@/Components/CV/CV.styles";
 
 const PortfolioAccordion: React.FC<PortfolioProps> = ({
   projectItems,

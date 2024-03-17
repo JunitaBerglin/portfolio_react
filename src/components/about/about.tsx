@@ -4,13 +4,13 @@ import { AboutSection } from "../Home/Home.styles";
 import {
   CardImageFront,
   CardInner,
-} from "../PortfolioWork/PortfolioWork.styles";
+} from "@/Components/PortfolioWork/PortfolioWork.styles";
 import {
   AboutCard,
   AboutWrapper,
   CardContentAbout,
   ImgWrapper,
-} from "./about.styles";
+} from "./About.styles";
 
 export const About: React.FC = () => {
   return (
