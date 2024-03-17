@@ -8,8 +8,8 @@ import PortfolioWork from "../PortfolioWork/PortfolioWork";
 import { Contact } from "../Contact/Contact";
 import { PortfolioProps } from "../PortfolioWork/PortfolioWork.types";
 import HomePage from "../Home/Home";
-import { ProjectTextCV } from "../CV/cv.styles";
 import { SectionName } from "./PortfolioAccordion.types";
+import { ProjectTextCV } from "../CV/cv.styles";
 
 const PortfolioAccordion: React.FC<PortfolioProps> = ({
   projectItems,
@@ -43,9 +43,10 @@ const PortfolioAccordion: React.FC<PortfolioProps> = ({
         <ProjectText>CONTACT</ProjectText>
       </SectionContainer>
       {openSection === "contact" && <Contact />}
-
       <SectionContainer>
-        <ProjectTextCV href="/cv">CV</ProjectTextCV>
+        <ProjectTextCV href="/Junita_Berglin_CV_2024.pdf">
+          CV
+        </ProjectTextCV>
       </SectionContainer>
     </>
   );

@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import { desktopStyles } from "@/Components/Global/style-variables/variables";
+import { desktopStyles } from "../Global/style-variables/variables";
 
-export const ProjectTextCV = styled.a`
+export const ProjectTextCV = styled.a.attrs({
+  target: "_blank",
+  rel: "noopener noreferrer",
+})`
   color: black;
   font-family: "lemon";
   font-size: 80px;
