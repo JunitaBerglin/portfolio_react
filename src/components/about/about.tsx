@@ -1,15 +1,12 @@
 import React from "react";
 
 import { AboutSection } from "../Home/Home.styles";
-import {
-  CardImageFront,
-  CardInner,
-} from "@/Components/PortfolioWork/PortfolioWork.styles";
+import { CardInner } from "../PortfolioWork/PortfolioWork.styles";
 import {
   AboutCard,
+  AboutImage,
   AboutWrapper,
   CardContentAbout,
-  ImgWrapper,
 } from "./About.styles";
 
 export const About: React.FC = () => {
@@ -18,12 +15,10 @@ export const About: React.FC = () => {
       <AboutWrapper>
         <AboutCard>
           <CardInner>
-            <ImgWrapper>
-              <CardImageFront
-                src="/IMG_5660_VSCO.jpg"
-                alt="Picture of me"
-              />
-            </ImgWrapper>
+            <AboutImage
+              src="/IMG_5660_VSCO.jpg"
+              alt="Picture of me"
+            />
             <CardContentAbout>
               Hello, I’m Junita! I am a junior front end developer,
               currently studying at Medieinstitutet in Stockholm. As a

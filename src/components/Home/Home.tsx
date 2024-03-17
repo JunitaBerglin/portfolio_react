@@ -8,7 +8,7 @@ import {
   Move,
   InnerHomeWrapper,
   OuterHomeWrapper,
-} from "@/Components/Home/Home.styles";
+} from "../Home/Home.styles";
 
 const HomePage: React.FC = () => {
   return (

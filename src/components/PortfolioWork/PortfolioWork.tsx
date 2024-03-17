@@ -10,7 +10,7 @@ import {
   ProjectDescription,
   ProjectName,
   WorkWrapper,
-} from "@/Components/PortfolioWork/PortfolioWork.styles";
+} from "../PortfolioWork/PortfolioWork.styles";
 import { useRouter } from "next/router";
 
 const PortfolioWork: React.FC<PortfolioProps> = ({
