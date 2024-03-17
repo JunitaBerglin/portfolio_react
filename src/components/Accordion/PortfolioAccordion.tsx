@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  PortfolioWrapper,
   ProjectText,
   SectionContainer,
 } from "./PortfolioAccordion.styles";
@@ -22,10 +23,8 @@ const PortfolioAccordion: React.FC<PortfolioProps> = ({
     );
   };
 
-  console.log("projekts ==>", projectItems);
-
   return (
-    <>
+    <PortfolioWrapper>
       <HomePage />
       <SectionContainer onClick={() => toggleSection("about")}>
         <ProjectText>ABOUT</ProjectText>
@@ -48,7 +47,7 @@ const PortfolioAccordion: React.FC<PortfolioProps> = ({
           CV
         </ProjectTextCV>
       </SectionContainer>
-    </>
+    </PortfolioWrapper>
   );
 };
 

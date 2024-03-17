@@ -4,6 +4,19 @@ import {
   desktopStyles,
 } from "@/Components/Global/style-variables/variables";
 
+export const PortfolioWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 98vw;
+  margin-bottom: 7px;
+  padding: 5px;
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+`;
+
 export const SectionContainer = styled.nav`
   cursor: pointer;
   display: flex;

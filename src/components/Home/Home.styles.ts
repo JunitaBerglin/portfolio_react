@@ -6,54 +6,60 @@ export const AboutSection = styled.div`
   justify-content: center;
 `;
 
-export const PortfolioWrapper = styled.div`
-  margin-bottom: 7px;
-  @media (min-width: 768px) {
-    margin-bottom: 20px;
-  }
-`;
-
 export const OuterHomeWrapper = styled.div`
+  font-family: "lemon";
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; // or any desired height
-  width: 100%; // or any desired width
-  background-color: lightblue; // just for better visibility
+  width: 90vw;
+  height: 90vh;
   @media (min-width: 768px) {
-    height: 90vh;
+    height: 150vh;
     width: 90vw;
   }
 `;
 
 export const InnerHomeWrapper = styled.div`
-  width: 70vw;
-  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 80%;
 
   @media (min-width: 768px) {
-    height: 90vh;
-    width: 90vw;
+    width: 98vw;
   }
 `;
 
-export const WrapperOfJunita = styled.section`
-  height: 30vh;
+export const WrapperOfJunita = styled.div`
+  height: 42vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 10px;
 
   @media (min-width: 768px) {
+    margin-bottom: 60px;
   }
 `;
 
 export const BigName = styled.h2`
+  line-height: 0;
   font-size: 7em;
   @media (min-width: 768px) {
-    font-size: 15em;
+    line-height: 0.6;
+    font-size: 16em;
   }
 `;
 
-export const WrapperOfBerglin = styled.section`
-  height: 30vh;
+export const WrapperOfBerglin = styled.div`
+  height: 42vh;
+  display: flex;
+  align-items: flex-end;
 
   @media (min-width: 768px) {
+    margin-top: 50px;
   }
 `;
 
@@ -68,9 +74,8 @@ export const MiddleMovement = styled.div`
   width: 24em;
 
   @media (min-width: 768px) {
+    height: 50px;
     width: 52em;
-    padding-bottom: 0;
-    margin-top: 90px;
   }
 `;
 
@@ -78,10 +83,10 @@ export const MiddleMovementText = styled.div`
   color: ${colors.primary};
   font-family: "thin";
   font-size: 25px;
+  font-weight: bold;
 
   @media (min-width: 768px) {
     font-size: 32px;
-    padding-bottom: 0;
   }
 `;
 

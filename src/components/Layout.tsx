@@ -1,5 +1,4 @@
 import StyledComponentsRegistry from "lib/registry";
-import { PortfolioWrapper } from "./Home/Home.styles";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,8 +6,6 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <PortfolioWrapper>
-      <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-    </PortfolioWrapper>
+    <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
   );
 };
