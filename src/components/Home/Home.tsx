@@ -6,26 +6,29 @@ import {
   MiddleMovement,
   MiddleMovementText,
   Move,
-  HomeWrapper,
+  InnerHomeWrapper,
+  OuterHomeWrapper,
 } from "@/Components/Home/Home.styles";
 
 const HomePage: React.FC = () => {
   return (
-    <HomeWrapper>
-      <WrapperOfJunita>
-        <BigName>JUNITA</BigName>
-      </WrapperOfJunita>
+    <OuterHomeWrapper>
+      <InnerHomeWrapper>
+        <WrapperOfJunita>
+          <BigName>JUNITA</BigName>
+        </WrapperOfJunita>
 
-      <MiddleMovement>
-        <MiddleMovementText>
-          <Move>F R O N T E N D . D E V E L O P E R</Move>
-        </MiddleMovementText>
-      </MiddleMovement>
+        <MiddleMovement>
+          <MiddleMovementText>
+            <Move>F R O N T E N D . D E V E L O P E R</Move>
+          </MiddleMovementText>
+        </MiddleMovement>
 
-      <WrapperOfBerglin>
-        <BigName>BERGLIN</BigName>
-      </WrapperOfBerglin>
-    </HomeWrapper>
+        <WrapperOfBerglin>
+          <BigName>BERGLIN</BigName>
+        </WrapperOfBerglin>
+      </InnerHomeWrapper>
+    </OuterHomeWrapper>
   );
 };
 
