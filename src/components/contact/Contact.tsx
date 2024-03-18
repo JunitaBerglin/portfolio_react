@@ -31,7 +31,6 @@ export const Contact = () => {
       return;
     }
 
-    // Form data for submission
     const formData = new FormData();
     formData.append("firstName", firstName);
     formData.append("lastName", lastName);
