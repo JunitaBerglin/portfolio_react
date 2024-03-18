@@ -27,7 +27,7 @@ const PortfolioPage: React.FC = () => {
               }
               name
               projectId
-              slug
+              githubName
             }
           }
         `,
@@ -39,7 +39,7 @@ const PortfolioPage: React.FC = () => {
           image: work.image ?? { url: "/default-image.jpg" },
           description: work.description,
           projectId: work.projectId,
-          slug: work.slug,
+          slug: work.githubName,
         })
       );
 

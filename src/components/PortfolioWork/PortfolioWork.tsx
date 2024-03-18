@@ -39,7 +39,9 @@ const PortfolioWork: React.FC<PortfolioProps> = ({
                   {project.description}
                 </ProjectDescription>
                 <LiveDemo
-                  onClick={() => handleLiveDemoClick(project.slug)}>
+                  onClick={() =>
+                    handleLiveDemoClick(project.githubName)
+                  }>
                   Go take a look!
                 </LiveDemo>
               </CardContent>

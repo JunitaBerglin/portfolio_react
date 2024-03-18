@@ -7,7 +7,7 @@ export type PortfolioProject = {
   image: PortfolioImage;
   description: string;
   projectId: number;
-  slug: string;
+  githubName: string;
 };
 
 export interface PortfolioProps {
