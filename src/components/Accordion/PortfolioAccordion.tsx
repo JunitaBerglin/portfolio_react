@@ -11,6 +11,7 @@ import { PortfolioProps } from "../PortfolioWork/PortfolioWork.types";
 import HomePage from "../Home/Home";
 import { SectionName } from "./PortfolioAccordion.types";
 import { ProjectTextCV } from "../CV/CV.styles";
+import AnimatedArrowComponent from "../Home/Animation/Arrow";
 
 const PortfolioAccordion: React.FC<PortfolioProps> = ({
   projectItems,
@@ -26,6 +27,7 @@ const PortfolioAccordion: React.FC<PortfolioProps> = ({
   return (
     <PortfolioWrapper>
       <HomePage />
+      <AnimatedArrowComponent />
       <SectionContainer onClick={() => toggleSection("about")}>
         <ProjectText>ABOUT</ProjectText>
       </SectionContainer>

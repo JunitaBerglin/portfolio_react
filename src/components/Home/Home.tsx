@@ -10,7 +10,6 @@ import {
   OuterHomeWrapper,
 } from "../Home/Home.styles";
 import EyeComponent, { EyeWrapper } from "./Animation/Eye";
-import AnimatedArrowComponent from "./Animation/Arrow";
 
 const HomePage: React.FC = () => {
   return (
@@ -35,7 +34,6 @@ const HomePage: React.FC = () => {
           </BigName>
         </WrapperOfBerglin>
       </InnerHomeWrapper>
-      <AnimatedArrowComponent />
     </OuterHomeWrapper>
   );
 };

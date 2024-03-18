@@ -12,11 +12,10 @@ export const OuterHomeWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 45em;
-
+  height: 40em;
   @media (min-width: 768px) {
     width: 90vw;
-    height: 47em;
+    height: 43em;
   }
 `;
 
