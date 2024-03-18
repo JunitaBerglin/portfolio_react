@@ -4,14 +4,15 @@ import {
   ProjectText,
   SectionContainer,
 } from "./PortfolioAccordion.styles";
-import { About } from "../About/About";
+
 import PortfolioWork from "../PortfolioWork/PortfolioWork";
-import { Contact } from "../Contact/Contact";
+import { Contact } from "../contact/Contact";
 import { PortfolioProps } from "../PortfolioWork/PortfolioWork.types";
 import HomePage from "../Home/Home";
 import { SectionName } from "./PortfolioAccordion.types";
 import { ProjectTextCV } from "../CV/CV.styles";
 import AnimatedArrowComponent from "../Home/Animation/Arrow";
+import { About } from "../about/about";
 
 const PortfolioAccordion: React.FC<PortfolioProps> = ({
   projectItems,

@@ -6,7 +6,7 @@ import {
   AboutImage,
   AboutWrapper,
   CardContentAbout,
-} from "./About.styles";
+} from "./about.styles";
 
 export const About: React.FC = () => {
   return (
