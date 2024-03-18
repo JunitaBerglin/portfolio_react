@@ -10,9 +10,9 @@ import { Contact } from "../contact/Contact";
 import { PortfolioProps } from "../PortfolioWork/PortfolioWork.types";
 import HomePage from "../Home/Home";
 import { SectionName } from "./PortfolioAccordion.types";
-import { ProjectTextCV } from "../CV/CV.styles";
 import AnimatedArrowComponent from "../Home/Animation/Arrow";
 import { About } from "../about/about";
+import { ProjectTextCV } from "../CV/CV.styles";
 
 const PortfolioAccordion: React.FC<PortfolioProps> = ({
   projectItems,
