@@ -4,10 +4,7 @@ import {
   CardFace,
   CardImageFront,
 } from "../PortfolioWork/PortfolioWork.styles";
-import {
-  colors,
-  desktopStyles,
-} from "../Global/style-variables/variables";
+import { desktopStyles } from "../Global/style-variables/variables";
 
 export const AboutWrapper = styled.div`
   display: flex;

@@ -1,12 +1,12 @@
 import React from "react";
 import { AboutSection } from "../Home/Home.styles";
-import { CardInner } from "../PortfolioWork/PortfolioWork.styles";
 import {
   AboutCard,
   AboutImage,
   AboutWrapper,
   CardContentAbout,
 } from "./about.styles";
+import { CardInner } from "../PortfolioWork/PortfolioWork.styles";
 
 export const About: React.FC = () => {
   return (

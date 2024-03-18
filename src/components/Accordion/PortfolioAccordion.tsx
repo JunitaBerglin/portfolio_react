@@ -1,17 +1,16 @@
 import React, { useState } from "react";
+import { PortfolioProps } from "../PortfolioWork/PortfolioWork.types";
+import { SectionName } from "./PortfolioAccordion.types";
 import {
   PortfolioWrapper,
   ProjectText,
   SectionContainer,
 } from "./PortfolioAccordion.styles";
-
-import PortfolioWork from "../PortfolioWork/PortfolioWork";
-import { Contact } from "../contact/Contact";
-import { PortfolioProps } from "../PortfolioWork/PortfolioWork.types";
 import HomePage from "../Home/Home";
-import { SectionName } from "./PortfolioAccordion.types";
 import AnimatedArrowComponent from "../Home/Animation/Arrow";
+import PortfolioWork from "../PortfolioWork/PortfolioWork";
 import { About } from "../about/about";
+import { Contact } from "../contact/Contact";
 import { ProjectTextCV } from "../CV/cv.styles";
 
 const PortfolioAccordion: React.FC<PortfolioProps> = ({

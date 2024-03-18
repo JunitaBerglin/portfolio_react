@@ -1,12 +1,12 @@
 import { gql } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import client from "../../lib/apollo-client";
-import { PortfolioProject } from "../Components/PortfolioWork/PortfolioWork.types";
+import { PortfolioProject } from "../components/PortfolioWork/PortfolioWork.types";
 import dynamic from "next/dynamic";
-import { Layout } from "../Components/Layout";
+import { Layout } from "../components/Layout";
 
 const PortfolioAccordionNoSSR = dynamic(
-  () => import("../Components/Accordion/PortfolioAccordion"),
+  () => import("../components/Accordion/PortfolioAccordion"),
   { ssr: false }
 );
 
