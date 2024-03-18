@@ -13,7 +13,7 @@ export const OuterHomeWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 45em;
-  background-color: aliceblue;
+
   @media (min-width: 768px) {
     width: 90vw;
     height: 47em;
@@ -28,7 +28,6 @@ export const InnerHomeWrapper = styled.div`
   align-items: center;
   height: 18em;
   width: 80%;
-  background-color: red;
 
   @media (min-width: 768px) {
     width: 98vw;
@@ -40,7 +39,6 @@ export const WrapperOfJunita = styled.div`
   height: 128px;
   display: flex;
   justify-content: center;
-  background-color: brown;
 
   @media (min-width: 768px) {
     height: 315px;
@@ -52,7 +50,6 @@ export const WrapperOfBerglin = styled.div`
   height: 125px;
   display: flex;
   align-items: flex-end;
-  background-color: bisque;
 
   @media (min-width: 768px) {
     height: 307px;
