@@ -12,7 +12,7 @@ import HomePage from "../Home/Home";
 import { SectionName } from "./PortfolioAccordion.types";
 import AnimatedArrowComponent from "../Home/Animation/Arrow";
 import { About } from "../about/about";
-import { ProjectTextCV } from "../CV/CV.styles";
+import { ProjectTextCV } from "../CV/cv.styles";
 
 const PortfolioAccordion: React.FC<PortfolioProps> = ({
   projectItems,
