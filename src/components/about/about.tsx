@@ -19,15 +19,17 @@ export const About: React.FC = () => {
               alt="Picture of me"
             />
             <CardContentAbout>
-              Hello, I’m Junita! I am a junior front end developer,
-              currently studying at Medieinstitutet in Stockholm. As a
-              former occupational therapist, I always have a creative
-              perspective in mind and I love what innovation can do
-              for people. Next up for me is an internship this autumn.
-              I hope to find a place where I can contribute as well as
-              learn and develop my front end skills. So if you're
-              interested in talking more - don't hesitate to contact
-              me!
+              Hello, I’m Junita! Front end developer driven by a
+              passion for innovation and a keen interest in AI, I
+              combine a creative mindset with technical skills and
+              believe that is my strength. With knowledge of the
+              multifaceted gaming industry, my experiences enrich my
+              approach to user-centered design. My occupational
+              therapy background has given me strong social skills and
+              contributes to a refined aesthetic sense, ensuring that
+              I deliver not only functional but also visually engaging
+              digital solutions. If you're interested in talking more
+              - don't hesitate to contact me!
             </CardContentAbout>
           </CardInner>
         </AboutCard>
