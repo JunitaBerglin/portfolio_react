@@ -5,21 +5,21 @@ import {
   CardContent,
   CardImageFront,
   CardInner,
-  LiveDemo,
   Project,
   ProjectDescription,
   ProjectName,
   WorkWrapper,
 } from "../PortfolioWork/PortfolioWork.styles";
 import { useRouter } from "next/router";
+import Button from "../Home/Animation/Button";
 
 const PortfolioWork: React.FC<PortfolioProps> = ({
   projectItems,
 }) => {
   const router = useRouter();
 
-  const handleLiveDemoClick = (projectName: string) => {
-    const projectUrl = `https://junitaberglin-${projectName}.netlify.app/`;
+  const handleLiveDemoClick = () => {
+    const projectUrl = `https://github.com/JunitaBerglin?tab=repositories`;
     window.open(projectUrl, "_blank");
   };
 
@@ -38,12 +38,9 @@ const PortfolioWork: React.FC<PortfolioProps> = ({
                 <ProjectDescription>
                   {project.description}
                 </ProjectDescription>
-                <LiveDemo
-                  onClick={() =>
-                    handleLiveDemoClick(project.githubName)
-                  }>
-                  Go take a look!
-                </LiveDemo>
+                <Button onClick={() => handleLiveDemoClick()}>
+                  Take a look!
+                </Button>
               </CardContent>
             </CardInner>
           </Card>

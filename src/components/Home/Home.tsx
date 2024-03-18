@@ -3,13 +3,11 @@ import {
   WrapperOfJunita,
   BigName,
   WrapperOfBerglin,
-  MiddleMovement,
-  MiddleMovementText,
-  Move,
   InnerHomeWrapper,
   OuterHomeWrapper,
 } from "../Home/Home.styles";
 import EyeComponent, { EyeWrapper } from "./Animation/Eye";
+import MovingText from "./Animation/TextMoving";
 
 const HomePage: React.FC = () => {
   return (
@@ -18,13 +16,7 @@ const HomePage: React.FC = () => {
         <WrapperOfJunita>
           <BigName>JUNITA</BigName>
         </WrapperOfJunita>
-
-        <MiddleMovement>
-          <MiddleMovementText>
-            <Move>F R O N T E N D . D E V E L O P E R</Move>
-          </MiddleMovementText>
-        </MiddleMovement>
-
+        <MovingText />
         <WrapperOfBerglin>
           <BigName>
             <EyeWrapper>

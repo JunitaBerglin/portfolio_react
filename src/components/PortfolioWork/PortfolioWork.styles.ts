@@ -83,19 +83,6 @@ export const CardContent = styled(CardFace)`
   transform: rotateY(180deg);
 `;
 
-export const LiveDemo = styled.button`
-  padding: 7px;
-  border-radius: 8px;
-  background: #ffad01;
-  border: none;
-  color: black;
-  text-decoration: none;
-  font-family: "thin";
-  display: inline-block;
-  margin-top: auto;
-  font-size: 20px;
-`;
-
 export const ProjectName = styled.div`
   display: flex;
   justify-content: center;

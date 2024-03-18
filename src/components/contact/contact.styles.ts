@@ -22,9 +22,13 @@ export const Title = styled.h2`
 `;
 
 export const Text = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 460px;
+  padding-top: 20px;
   font-size: 20px;
   text-align: center;
-  width: 100%;
+  width: 20%;
 
   ${desktopStyles} {
     font-size: 25px;
@@ -71,25 +75,5 @@ export const TextArea = styled.textarea`
   ${desktopStyles} {
     width: 58vw;
     max-width: 60vw;
-  }
-`;
-
-export const Button = styled.button`
-  font-size: 20px;
-  margin-top: 25px;
-  margin-bottom: 20px;
-  padding: 7px;
-  border-radius: 8px;
-  background: #ffad01;
-  border: none;
-  color: black;
-  text-decoration: none;
-  font-family: "thin";
-  display: inline-block;
-
-  &:hover {
-    background-color: #ffffdf;
-    border: 1px solid #000;
-    color: #000;
   }
 `;

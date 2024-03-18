@@ -1,6 +1,5 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import {
-  Button,
   ContactSection,
   Form,
   FormContainer,
@@ -10,6 +9,7 @@ import {
   TextArea,
   Title,
 } from "./contact.styles";
+import Button from "../Home/Animation/Button";
 
 export const Contact = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -154,9 +154,13 @@ export const Contact = () => {
             value={message}
             onChange={handleInputChange}></TextArea>
         </FormContainer>
-        <Button type="submit">Submit</Button>
+        <Text>
+          <Button type="submit" backgroundColor="#b16002">
+            Submit
+          </Button>
+          Or, email me directly at junita.berglin@gmail.com!
+        </Text>
       </Form>
-      <Text>Or, email me directly at junita.berglin@gmail.com!</Text>
     </ContactSection>
   );
 };
