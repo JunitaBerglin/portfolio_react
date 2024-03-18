@@ -40,7 +40,7 @@ export const AboutCard = styled(Card)`
 
 export const CardContentAbout = styled(CardFace)`
   background-color: #000;
-  padding: 10px;
+  padding: 20px;
   color: #fff;
   font-family: "thin";
   font-size: 20px;
