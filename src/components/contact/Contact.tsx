@@ -9,7 +9,7 @@ import {
   Text,
   TextArea,
   Title,
-} from "../Contact/contact.styles";
+} from "./Contact.styles";
 
 export const Contact = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -101,7 +101,8 @@ export const Contact = () => {
       <Title>Get in touch!</Title>
       <Form
         action="https://formsubmit.co/68a04b80f29cd1ae7d696341179067a2"
-        method="POST">
+        method="POST"
+        onSubmit={handleSubmit}>
         <FormContainer>
           <Label htmlFor="firstName">First Name</Label>
           <Input
@@ -154,12 +155,7 @@ export const Contact = () => {
             value={message}
             onChange={handleInputChange}></TextArea>
         </FormContainer>
-        <Button
-          onClick={() => {
-            handleSubmit;
-          }}>
-          Submit
-        </Button>
+        <Button type="submit">Submit</Button>
       </Form>
       <Text>Or, email me directly at junita.berglin@gmail.com!</Text>
     </ContactSection>

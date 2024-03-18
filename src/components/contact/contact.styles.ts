@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { desktopStyles } from "../Global/style-variables/variables";
-import { LiveDemo } from "../PortfolioWork/PortfolioWork.styles";
 
 export const ContactSection = styled.section`
   min-height: 60vh;
@@ -13,22 +12,22 @@ export const ContactSection = styled.section`
 `;
 
 export const Title = styled.h2`
-  font-size: 2rem;
+  font-size: 30px;
   width: 80%;
   padding: 30px;
 
   ${desktopStyles} {
-    font-size: 1.5rem;
+    font-size: 50px;
   }
 `;
 
 export const Text = styled.div`
-  font-size: 1em;
+  font-size: 20px;
   text-align: center;
   width: 100%;
 
   ${desktopStyles} {
-    font-size: 1.8;
+    font-size: 25px;
   }
 `;
 
@@ -75,12 +74,18 @@ export const TextArea = styled.textarea`
   }
 `;
 
-export const Button = styled(LiveDemo)`
-  font-size: 1.3;
-  border: 1px solid #000;
-  border-radius: 5px;
-  margin-top: 20px;
-  margin-bottom: 100px;
+export const Button = styled.button`
+  font-size: 20px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  padding: 7px;
+  border-radius: 8px;
+  background: #ffad01;
+  border: none;
+  color: black;
+  text-decoration: none;
+  font-family: "thin";
+  display: inline-block;
 
   &:hover {
     background-color: #ffffdf;
