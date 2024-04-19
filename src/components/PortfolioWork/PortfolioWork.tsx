@@ -18,10 +18,16 @@ const PortfolioWork: React.FC<PortfolioProps> = ({
 }) => {
   const router = useRouter();
 
-  console.log(projectItems);
-
   const handleLiveDemoClick = (projectUrl: string) => {
-    window.open(projectUrl, "_blank");
+    console.log("Opening project URL:", projectUrl);
+    if (typeof projectUrl === "string" && projectUrl.trim() !== "") {
+      window.open(projectUrl, "_blank");
+    } else {
+      console.error(
+        "Project URL is not defined or not a string:",
+        projectUrl
+      );
+    }
   };
 
   return (
@@ -39,12 +45,14 @@ const PortfolioWork: React.FC<PortfolioProps> = ({
                 <ProjectDescription>
                   {project.description}
                 </ProjectDescription>
-                <Button
-                  onClick={() =>
-                    handleLiveDemoClick(project.githubName)
-                  }>
-                  Take a look!
-                </Button>
+                {project.showDemoButton && (
+                  <Button
+                    onClick={() =>
+                      handleLiveDemoClick(project.githubName)
+                    }>
+                    Take a look!
+                  </Button>
+                )}
               </CardContent>
             </CardInner>
           </Card>

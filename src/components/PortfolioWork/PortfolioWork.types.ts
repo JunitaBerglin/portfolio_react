@@ -8,6 +8,7 @@ export type PortfolioProject = {
   description: string;
   projectId: number;
   githubName: string;
+  showDemoButton: boolean;
 };
 
 export interface PortfolioProps {

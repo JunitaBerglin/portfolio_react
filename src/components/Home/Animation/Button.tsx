@@ -5,6 +5,7 @@ interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   backgroundColor?: string;
+  enabled?: boolean;
 }
 
 const shakeAnimation = keyframes`

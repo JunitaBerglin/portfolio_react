@@ -28,6 +28,7 @@ const PortfolioPage: React.FC = () => {
               name
               projectId
               githubName
+              showDemoButton
             }
           }
         `,
@@ -39,7 +40,10 @@ const PortfolioPage: React.FC = () => {
           image: work.image ?? { url: "/default-image.jpg" },
           description: work.description,
           projectId: work.projectId,
-          githubName: work.githubName,
+          githubName: work.githubName.startsWith("http")
+            ? work.githubName
+            : `https://github.com/${work.githubName}`,
+          showDemoButton: work.showDemoButton,
         })
       );
 
