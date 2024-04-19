@@ -39,7 +39,7 @@ const PortfolioPage: React.FC = () => {
           image: work.image ?? { url: "/default-image.jpg" },
           description: work.description,
           projectId: work.projectId,
-          slug: work.githubName,
+          githubName: work.githubName,
         })
       );
 

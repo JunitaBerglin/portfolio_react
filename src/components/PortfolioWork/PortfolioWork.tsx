@@ -18,8 +18,9 @@ const PortfolioWork: React.FC<PortfolioProps> = ({
 }) => {
   const router = useRouter();
 
-  const handleLiveDemoClick = () => {
-    const projectUrl = `https://github.com/JunitaBerglin?tab=repositories`;
+  console.log(projectItems);
+
+  const handleLiveDemoClick = (projectUrl: string) => {
     window.open(projectUrl, "_blank");
   };
 
@@ -38,7 +39,10 @@ const PortfolioWork: React.FC<PortfolioProps> = ({
                 <ProjectDescription>
                   {project.description}
                 </ProjectDescription>
-                <Button onClick={() => handleLiveDemoClick()}>
+                <Button
+                  onClick={() =>
+                    handleLiveDemoClick(project.githubName)
+                  }>
                   Take a look!
                 </Button>
               </CardContent>
