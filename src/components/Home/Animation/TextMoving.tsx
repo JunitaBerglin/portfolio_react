@@ -64,7 +64,7 @@ export const MovingText = () => {
     <MiddleMovement>
       <MiddleMovementText>
         <Move>
-          F R O N T E N D <Dott /> D E V E L O P E R
+          W E B <Dott /> D E V E L O P E R
         </Move>
       </MiddleMovementText>
     </MiddleMovement>
