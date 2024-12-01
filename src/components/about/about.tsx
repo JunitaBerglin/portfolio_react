@@ -14,22 +14,19 @@ export const About: React.FC = () => {
       <AboutWrapper>
         <AboutCard>
           <CardInner>
-            <AboutImage
-              src="/IMG_5660_VSCO.jpg"
-              alt="Picture of me"
-            />
+            <AboutImage src="/IMG_5660_VSCO.jpg" alt="Picture of me" />
             <CardContentAbout>
-              Hello, I’m Junita! Front end developer driven by a
-              passion for innovation and a keen interest in AI, I
-              combine a creative mindset with technical skills and
-              believe that is my strength. With knowledge of the
-              multifaceted gaming industry, my experiences enrich my
-              approach to user-centered design. My occupational
-              therapy background has given me strong social skills and
-              contributes to a refined aesthetic sense, ensuring that
-              I deliver not only functional but also visually engaging
-              digital solutions. If you're interested in talking more
-              - don't hesitate to contact me!
+              Hello, I’m Junita! With drive and passion for innovation, I
+              combine a creative approach with technical skills, which I see as
+              my strength. With lessons learned from the multifaceted game
+              industry and with insight into both business strategies and
+              company structures, I approach technical challenges with a broad
+              perspective. My background as an occupational therapist has given
+              me the ability to deal with all different types of people, and I
+              contribute with a lot of energy and positivity which generates
+              successful teams. This, together with my analytical skills and my
+              sense of aesthetics, I deliver solutions that are not only
+              functional but also thoughtful and visually appealing.
             </CardContentAbout>
           </CardInner>
         </AboutCard>

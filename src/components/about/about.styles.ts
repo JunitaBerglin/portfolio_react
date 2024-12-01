@@ -32,19 +32,17 @@ export const AboutCard = styled(Card)`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 25px;
+  margin: 15px;
   position: relative;
-  perspective: 1000px;
+  perspective: 900px;
   background-color: aliceblue;
 `;
 
 export const CardContentAbout = styled(CardFace)`
   background-color: #000;
   position: absolute;
-  padding: 20px;
   color: #fff;
   font-family: "thin";
-  font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
