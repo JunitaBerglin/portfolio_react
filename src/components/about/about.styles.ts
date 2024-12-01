@@ -4,7 +4,7 @@ import {
   CardFace,
   CardImageFront,
 } from "../PortfolioWork/PortfolioWork.styles";
-import { desktopStyles } from "../Global/style-variables/variables";
+import { colors, desktopStyles } from "../Global/style-variables/variables";
 
 export const AboutWrapper = styled.div`
   display: flex;
@@ -29,13 +29,16 @@ export const AboutImage = styled(CardImageFront)`
 `;
 
 export const AboutCard = styled(Card)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 15px;
   position: relative;
-  perspective: 900px;
-  background-color: aliceblue;
+  width: 380px;
+  height: 230px;
+  border-radius: 10px;
+  perspective: 1000px;
+  box-shadow: 0 0 0 0px #ffffff80;
+  transition: box-shadow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  &:hover {
+    box-shadow: 0 0px 0px rgba(255, 255, 255, 0.2);
+  }
 `;
 
 export const CardContentAbout = styled(CardFace)`
