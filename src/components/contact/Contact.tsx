@@ -53,8 +53,10 @@ export const Contact = () => {
       formBody.append("message", message);
       formBody.append("_subject", `New contact from ${firstName} ${lastName}`);
       formBody.append("_template", "table");
+      formBody.append("_captcha", "false"); // Disable captcha for better UX
 
       console.log("📤 Sending form data:", Object.fromEntries(formBody));
+      console.log("🌐 Current domain:", window.location.hostname);
 
       const response = await fetch(
         "https://formsubmit.co/ajax/68a04b80f29cd1ae7d696341179067a2",
@@ -68,14 +70,21 @@ export const Contact = () => {
         }
       );
 
+      console.log("📡 Response status:", response.status);
+      console.log("📡 Response ok:", response.ok);
+
       const data = await response.json();
-      console.log("📬 Response:", data);
+      console.log("📬 Full Response:", data);
 
       if (response.ok && data.success) {
-        console.log("✅ Submission successful");
+        console.log("✅ Submission successful - Email should be sent!");
+        console.log("📧 Check your email:", "junita.berglin@gmail.com");
+        console.log("⚠️ First time? Check spam and verify your email!");
+
         setSubmitStatus({
           type: "success",
-          message: "Thank you for your message! I'll get back to you soon. 🎉",
+          message:
+            "Thank you for your message! I'll get back to you soon. 🎉 (Check your spam folder if this is your first submission)",
         });
 
         // Clear form
@@ -85,11 +94,12 @@ export const Contact = () => {
         setPhone("");
         setMessage("");
 
-        // Clear success message after 5 seconds
+        // Clear success message after 8 seconds (longer to read)
         setTimeout(() => {
           setSubmitStatus({ type: null, message: "" });
-        }, 5000);
+        }, 8000);
       } else {
+        console.error("❌ Response not ok:", data);
         throw new Error(data.message || "Submission failed");
       }
     } catch (error) {
