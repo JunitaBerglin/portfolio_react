@@ -26,7 +26,7 @@ export const Contact = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log("📧 Form submission started...");
+    console.log("📧 Form submission started.");
 
     if (
       !firstName.trim() ||

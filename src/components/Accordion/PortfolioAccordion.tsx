@@ -13,15 +13,11 @@ import { About } from "../about/about";
 import { Contact } from "../contact/Contact";
 import { ProjectTextCV } from "../CV/cv.styles";
 
-const PortfolioAccordion: React.FC<PortfolioProps> = ({
-  projectItems,
-}) => {
+const PortfolioAccordion: React.FC<PortfolioProps> = ({ projectItems }) => {
   const [openSection, setOpenSection] = useState<SectionName>(null);
 
   const toggleSection = (section: SectionName) => {
-    setOpenSection((prevSection) =>
-      prevSection === section ? null : section
-    );
+    setOpenSection((prevSection) => (prevSection === section ? null : section));
   };
 
   return (
@@ -45,9 +41,7 @@ const PortfolioAccordion: React.FC<PortfolioProps> = ({
       </SectionContainer>
       {openSection === "contact" && <Contact />}
       <SectionContainer>
-        <ProjectTextCV href="/Junita_Berglin_CV_2024.pdf">
-          CV
-        </ProjectTextCV>
+        <ProjectTextCV href="/Junita_Berglin_CV.pdf">CV</ProjectTextCV>
       </SectionContainer>
     </PortfolioWrapper>
   );
