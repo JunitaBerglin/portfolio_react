@@ -180,7 +180,7 @@ export const Contact = () => {
 
       <Form onSubmit={handleSubmit}>
         <FormContainer>
-          <Label htmlFor="firstName">First Name *</Label>
+          <Label htmlFor="firstName">First Name</Label>
           <Input
             type="text"
             id="firstName"
@@ -193,7 +193,7 @@ export const Contact = () => {
           />
         </FormContainer>
         <FormContainer>
-          <Label htmlFor="lastName">Last Name *</Label>
+          <Label htmlFor="lastName">Last Name</Label>
           <Input
             type="text"
             id="lastName"
@@ -206,7 +206,7 @@ export const Contact = () => {
           />
         </FormContainer>
         <FormContainer>
-          <Label htmlFor="email">Email *</Label>
+          <Label htmlFor="email">Email</Label>
           <Input
             type="email"
             id="email"
@@ -231,7 +231,7 @@ export const Contact = () => {
           />
         </FormContainer>
         <FormContainer>
-          <Label htmlFor="message">Your Message *</Label>
+          <Label htmlFor="message">Your Message</Label>
           <TextArea
             id="message"
             name="message"

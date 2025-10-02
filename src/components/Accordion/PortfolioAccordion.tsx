@@ -5,6 +5,7 @@ import {
   PortfolioWrapper,
   ProjectText,
   SectionContainer,
+  ArrowIcon,
 } from "./PortfolioAccordion.styles";
 import HomePage from "../Home/Home";
 import AnimatedArrowComponent from "../Home/Animation/Arrow";
@@ -26,11 +27,17 @@ const PortfolioAccordion: React.FC<PortfolioProps> = ({ projectItems }) => {
       <AnimatedArrowComponent />
       <SectionContainer onClick={() => toggleSection("about")}>
         <ProjectText>ABOUT</ProjectText>
+        <ArrowIcon isOpen={openSection === "about"} viewBox="0 0 24 24">
+          <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </ArrowIcon>
       </SectionContainer>
       {openSection === "about" && <About />}
 
       <SectionContainer onClick={() => toggleSection("projects")}>
         <ProjectText>PROJECTS</ProjectText>
+        <ArrowIcon isOpen={openSection === "projects"} viewBox="0 0 24 24">
+          <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </ArrowIcon>
       </SectionContainer>
       {openSection === "projects" && (
         <PortfolioWork projectItems={projectItems} />
@@ -38,6 +45,9 @@ const PortfolioAccordion: React.FC<PortfolioProps> = ({ projectItems }) => {
 
       <SectionContainer onClick={() => toggleSection("contact")}>
         <ProjectText>CONTACT</ProjectText>
+        <ArrowIcon isOpen={openSection === "contact"} viewBox="0 0 24 24">
+          <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </ArrowIcon>
       </SectionContainer>
       {openSection === "contact" && <Contact />}
       <SectionContainer>

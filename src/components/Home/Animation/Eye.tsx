@@ -1,52 +1,94 @@
 import { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
-const eyeBlink = keyframes`
-  0%, 95%, 100% {
-    height: 33px;
+// Eyelid animation - comes down from top like a real eye blink
+const eyelidBlink = keyframes`
+  0%, 90%, 100% {
+    clip-path: ellipse(0% 0% at 50% 0%);
   }
-  97% {
-    height: 2px;
-  }
-`;
-const eyeBlinkBig = keyframes`
-  0%, 95%, 100% {
-    height: 75px;
-  }
-  97% {
-    height: 2px;
+  95%, 97% {
+    clip-path: ellipse(100% 100% at 50% 0%);
   }
 `;
 
 export const EyeWrapper = styled.div`
-  position: relative;
-  padding-left: 128px;
-  height: 30px;
-  width: 30px;
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 7px);
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 480px) {
+    width: 35px;
+    height: 35px;
+    top: 50%;
+  }
 
   @media (min-width: 768px) {
-    padding-left: 50px;
-    padding-bottom: 49px;
+    width: 75px;
+    height: 75px;
+    top: calc(50% - 24px);
   }
+`;
+
+const EyeContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Eye = styled.div`
   position: absolute;
-  width: 25px;
-  height: 15px;
+  width: 24px;
+  height: 24px;
   background-color: #fff;
-  background-image: radial-gradient(
-    circle 14px,
-    #0d161b 100%,
-    transparent 0
-  );
+  background-image: radial-gradient(circle 9px, #0d161b 100%, transparent 0);
   background-repeat: no-repeat;
+  background-position: center;
   border-radius: 50%;
-  vertical-align: middle;
-  animation: ${eyeBlink} 4s infinite;
+  border: 1px solid #0d161b;
+
+  @media (min-width: 480px) {
+    width: 35px;
+    height: 35px;
+    background-image: radial-gradient(circle 14px, #0d161b 100%, transparent 0);
+    border: 2px solid #0d161b;
+  }
+
   @media (min-width: 768px) {
-    width: 48px;
-    animation: ${eyeBlinkBig} 4s infinite;
+    width: 75px;
+    height: 75px;
+    background-image: radial-gradient(circle 32px, #0d161b 100%, transparent 0);
+  }
+`;
+
+const Eyelid = styled.div`
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-color: #f8e6e3;
+  border-radius: 50%;
+  animation: ${eyelidBlink} 4s infinite;
+  z-index: 2;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+
+  @media (min-width: 480px) {
+    width: 35px;
+    height: 35px;
+  }
+
+  @media (min-width: 768px) {
+    width: 75px;
+    height: 75px;
   }
 `;
 
@@ -61,8 +103,8 @@ export default function EyeComponent() {
         eyeRef.current.getBoundingClientRect();
       const eyeCenterX = left + width / 2;
       const eyeCenterY = top + height / 2;
-      const deltaX = (clientX - eyeCenterX) * 0.05;
-      const deltaY = (clientY - eyeCenterY) * 0.05;
+      const deltaX = (clientX - eyeCenterX) * 0.08;
+      const deltaY = (clientY - eyeCenterY) * 0.08;
       setMousePosition({ x: deltaX, y: deltaY });
     }
   };
@@ -74,19 +116,19 @@ export default function EyeComponent() {
     window.addEventListener("mousemove", handleMouseMoveThrottled);
 
     return () => {
-      window.removeEventListener(
-        "mousemove",
-        handleMouseMoveThrottled
-      );
+      window.removeEventListener("mousemove", handleMouseMoveThrottled);
     };
   }, []);
 
   return (
-    <Eye
-      ref={eyeRef}
-      style={{
-        backgroundPosition: `${mousePosition.x}px ${mousePosition.y}px`,
-      }}
-    />
+    <EyeContainer>
+      <Eye
+        ref={eyeRef}
+        style={{
+          backgroundPosition: `calc(50% + ${mousePosition.x}px) calc(50% + ${mousePosition.y}px)`,
+        }}
+      />
+      <Eyelid />
+    </EyeContainer>
   );
 }

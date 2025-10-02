@@ -17,7 +17,7 @@ export const About: React.FC = () => {
             <AboutImage src="/portfolio-image-junita.jpg" alt="Picture of me" />
             <CardContentAbout>
               Hello, I’m Junita! <br /> I am a full stack developer, with drive
-              and passion for innovation, I combine a creative approach with
+              and passion for innovation. I combine a creative approach with
               technical skills, which I see as my strength. With lessons learned
               from the multifaceted game industry and with insight into both
               business strategies and company structures, I approach technical

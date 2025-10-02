@@ -24,20 +24,27 @@ export const Title = styled.h2`
 export const Text = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 460px;
-  padding-top: 20px;
-  font-size: 20px;
+  align-items: center;
+  padding: 20px 10px;
+  font-size: 16px;
   text-align: center;
-  width: 20%;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 
   ${desktopStyles} {
-    font-size: 25px;
+    font-size: 20px;
+    padding-top: 20px;
   }
 `;
 
 export const Form = styled.form`
-  width: 80vw;
+  width: 90%;
+  max-width: 600px;
   text-align: center;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
 `;
 
 export const FormContainer = styled.div`
@@ -48,32 +55,44 @@ export const FormContainer = styled.div`
 
 export const Label = styled.label`
   text-align: start;
-  padding: 5px;
-  font-size: 24px;
-  margin-top: 6px;
+  padding: 8px 0;
+  font-size: 18px;
+  margin-top: 10px;
+
+  ${desktopStyles} {
+    font-size: 22px;
+  }
 `;
 
 export const Input = styled.input`
-  width: 80vw;
-  height: 30px;
+  width: 100%;
+  max-width: 500px;
+  height: 40px;
   border-radius: 5px;
   border: none;
+  padding: 0 10px;
+  font-size: 16px;
+  box-sizing: border-box;
 
   ${desktopStyles} {
-    width: 29vw;
+    height: 45px;
+    max-width: 600px;
   }
 `;
 
 export const TextArea = styled.textarea`
-  width: 80vw;
-  max-width: 80vw;
+  width: 100%;
+  max-width: 500px;
   height: 150px;
   border-radius: 5px;
   border: none;
   padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  resize: vertical;
 
   ${desktopStyles} {
-    width: 58vw;
-    max-width: 60vw;
+    height: 180px;
+    max-width: 600px;
   }
 `;

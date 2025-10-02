@@ -19,10 +19,14 @@ const HomePage: React.FC = () => {
         <MovingText />
         <WrapperOfBerglin>
           <BigName>
-            <EyeWrapper>
-              <EyeComponent />
-            </EyeWrapper>
-            BERGLIN
+            BE
+            <span style={{ position: "relative", display: "inline-block" }}>
+              R
+              <EyeWrapper>
+                <EyeComponent />
+              </EyeWrapper>
+            </span>
+            GLIN
           </BigName>
         </WrapperOfBerglin>
       </InnerHomeWrapper>

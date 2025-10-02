@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../Global/style-variables/variables";
+import { colors, desktopStyles } from "../Global/style-variables/variables";
 
 export const WorkWrapper = styled.div`
   display: flex;
@@ -15,25 +15,37 @@ export const Project = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  margin: 30px;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 10px;
 
   @media (min-width: 768px) {
     justify-content: center;
     width: 80%;
+    max-width: none;
+    margin: 30px auto;
   }
 `;
 
 export const Card = styled.div`
   position: relative;
-  width: 380px;
+  width: 100%;
+  min-width: 320px;
+  max-width: 380px;
   height: 230px;
   border-radius: 10px;
   perspective: 1000px;
   box-shadow: 0 0 0 5px #ffffff80;
   transition: box-shadow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 0 auto;
+
   &:hover {
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+  }
+
+  ${desktopStyles} {
+    width: 380px;
   }
 `;
 
@@ -89,15 +101,25 @@ export const ProjectName = styled.div`
   align-items: center;
   font-family: "thin";
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px;
   margin: 10px;
+
+  ${desktopStyles} {
+    font-size: 24px;
+  }
 `;
 
 export const ProjectDescription = styled.div`
-  padding: 5px;
+  padding: 10px;
   font-family: "thin";
-  font-size: 20px;
+  font-size: 14px;
+  line-height: 1.4;
   padding-bottom: 1em;
+
+  ${desktopStyles} {
+    font-size: 18px;
+    line-height: 1.5;
+  }
 `;
 
 export const ToggleIcon = styled.div`

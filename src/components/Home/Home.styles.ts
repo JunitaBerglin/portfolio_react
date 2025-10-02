@@ -12,10 +12,12 @@ export const OuterHomeWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 40em;
+  min-height: 30em;
+  padding: 20px 0;
+
   @media (min-width: 768px) {
     width: 90vw;
-    height: 43em;
+    padding: 0;
   }
 `;
 
@@ -25,8 +27,7 @@ export const InnerHomeWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 18em;
-  width: 80%;
+  width: 90%;
 
   @media (min-width: 768px) {
     width: 98vw;
@@ -35,30 +36,36 @@ export const InnerHomeWrapper = styled.div`
 
 export const WrapperOfJunita = styled.div`
   position: relative;
-  height: 128px;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   @media (min-width: 768px) {
-    height: 315px;
+    margin-top: 17rem;
   }
 `;
 
 export const WrapperOfBerglin = styled.div`
   position: relative;
-  height: 125px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
 
   @media (min-width: 768px) {
-    height: 307px;
+    margin-bottom: 40px;
   }
 `;
 
 export const BigName = styled.h2`
-  line-height: 0;
-  font-size: 6.5em;
+  line-height: 0.5;
+  font-size: 5em;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  color: ${colors.secondaryDark};
+
   @media (min-width: 768px) {
     font-size: 16em;
+    line-height: 0.67;
   }
 `;

@@ -1,9 +1,9 @@
 import { css } from "styled-components";
 
 export const colors = {
-  primary: "#f9d080",
-  secondaryLight: "#ffffdf",
-  secondaryDark: "black",
+  primary: "#FBE1DB",
+  secondaryLight: "#f0e0dc",
+  secondaryDark: "#1A4735",
 };
 
 export const desktopStyles = css`
