@@ -17,9 +17,16 @@ export const Contact = () => {
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    console.log("📧 Form submission started...");
 
     if (
       !firstName.trim() ||
@@ -27,46 +34,73 @@ export const Contact = () => {
       !email.trim() ||
       !message.trim()
     ) {
-      alert("Please fill out all required fields :)");
+      setSubmitStatus({
+        type: "error",
+        message: "Please fill out all required fields :)",
+      });
       return;
     }
 
-    const formData = new FormData();
-    formData.append("firstName", firstName);
-    formData.append("lastName", lastName);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("message", message);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
 
     try {
+      // Create form data using application/x-www-form-urlencoded format
+      const formBody = new URLSearchParams();
+      formBody.append("name", `${firstName} ${lastName}`);
+      formBody.append("email", email);
+      formBody.append("phone", phone || "Not provided");
+      formBody.append("message", message);
+      formBody.append("_subject", `New contact from ${firstName} ${lastName}`);
+      formBody.append("_template", "table");
+
+      console.log("📤 Sending form data:", Object.fromEntries(formBody));
+
       const response = await fetch(
-        "https://formsubmit.co/68a04b80f29cd1ae7d696341179067a2",
+        "https://formsubmit.co/ajax/68a04b80f29cd1ae7d696341179067a2",
         {
           method: "POST",
-          body: formData, // Sending as FormData
           headers: {
-            Accept: "application/json", // Expecting JSON response
+            "Content-Type": "application/x-www-form-urlencoded",
+            Accept: "application/json",
           },
+          body: formBody.toString(),
         }
       );
 
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+      const data = await response.json();
+      console.log("📬 Response:", data);
+
+      if (response.ok && data.success) {
+        console.log("✅ Submission successful");
+        setSubmitStatus({
+          type: "success",
+          message: "Thank you for your message! I'll get back to you soon. 🎉",
+        });
+
+        // Clear form
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus({ type: null, message: "" });
+        }, 5000);
+      } else {
+        throw new Error(data.message || "Submission failed");
       }
-
-      console.log("Submission successful");
-      alert("Thank you for your message!");
-
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setPhone("");
-      setMessage("");
     } catch (error) {
-      console.error("Submission failed", error);
-      alert(
-        "There was a problem with your submission. Please try again."
-      );
+      console.error("❌ Submission failed:", error);
+      setSubmitStatus({
+        type: "error",
+        message:
+          "There was a problem with your submission. Please try again or email me directly.",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -98,12 +132,45 @@ export const Contact = () => {
   return (
     <ContactSection>
       <Title>Get in touch!</Title>
-      <Form
-        action="https://formsubmit.co/68a04b80f29cd1ae7d696341179067a2"
-        method="POST"
-        onSubmit={handleSubmit}>
+
+      {/* Status Messages */}
+      {submitStatus.type === "success" && (
+        <div
+          style={{
+            padding: "15px",
+            margin: "20px 0",
+            backgroundColor: "#d4edda",
+            border: "2px solid #28a745",
+            borderRadius: "8px",
+            color: "#155724",
+            textAlign: "center",
+            fontFamily: "thin",
+          }}
+        >
+          ✅ {submitStatus.message}
+        </div>
+      )}
+
+      {submitStatus.type === "error" && (
+        <div
+          style={{
+            padding: "15px",
+            margin: "20px 0",
+            backgroundColor: "#f8d7da",
+            border: "2px solid #dc3545",
+            borderRadius: "8px",
+            color: "#721c24",
+            textAlign: "center",
+            fontFamily: "thin",
+          }}
+        >
+          ⚠️ {submitStatus.message}
+        </div>
+      )}
+
+      <Form onSubmit={handleSubmit}>
         <FormContainer>
-          <Label htmlFor="firstName">First Name</Label>
+          <Label htmlFor="firstName">First Name *</Label>
           <Input
             type="text"
             id="firstName"
@@ -111,10 +178,12 @@ export const Contact = () => {
             required
             value={firstName}
             onChange={handleInputChange}
+            disabled={isSubmitting}
+            placeholder="Enter your first name"
           />
         </FormContainer>
         <FormContainer>
-          <Label htmlFor="lastName">Last Name</Label>
+          <Label htmlFor="lastName">Last Name *</Label>
           <Input
             type="text"
             id="lastName"
@@ -122,10 +191,12 @@ export const Contact = () => {
             required
             value={lastName}
             onChange={handleInputChange}
+            disabled={isSubmitting}
+            placeholder="Enter your last name"
           />
         </FormContainer>
         <FormContainer>
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">Email *</Label>
           <Input
             type="email"
             id="email"
@@ -133,6 +204,8 @@ export const Contact = () => {
             required
             value={email}
             onChange={handleInputChange}
+            disabled={isSubmitting}
+            placeholder="your.email@example.com"
           />
         </FormContainer>
         <FormContainer>
@@ -143,22 +216,43 @@ export const Contact = () => {
             name="phone"
             value={phone}
             onChange={handleInputChange}
+            disabled={isSubmitting}
+            placeholder="+46 123 456 789 (optional)"
           />
         </FormContainer>
         <FormContainer>
-          <Label htmlFor="message">Your Message</Label>
+          <Label htmlFor="message">Your Message *</Label>
           <TextArea
             id="message"
             name="message"
             required
             value={message}
-            onChange={handleInputChange}></TextArea>
+            onChange={handleInputChange}
+            disabled={isSubmitting}
+            placeholder="Write your message here..."
+            rows={5}
+          />
         </FormContainer>
         <Text>
-          <Button type="submit" backgroundColor="#b16002">
-            Submit
+          <Button
+            type="submit"
+            backgroundColor="#b16002"
+            disabled={isSubmitting}
+            style={{
+              opacity: isSubmitting ? 0.6 : 1,
+              cursor: isSubmitting ? "not-allowed" : "pointer",
+            }}
+          >
+            {isSubmitting ? "Sending... ⏳" : "Submit"}
           </Button>
-          Or, email me directly at junita.berglin@gmail.com!
+          Or, email me directly at{" "}
+          <a
+            href="mailto:junita.berglin@gmail.com"
+            style={{ color: "#b16002", textDecoration: "underline" }}
+          >
+            junita.berglin@gmail.com
+          </a>
+          !
         </Text>
       </Form>
     </ContactSection>
