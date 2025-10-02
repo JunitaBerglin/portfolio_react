@@ -15,7 +15,15 @@ const PortfolioPage: React.FC = () => {
 
   useEffect(() => {
     const fetchPortfolioWorks = async () => {
+      console.log("🚀 Startar fetch av portfolio works...");
+      console.log("Environment check:", {
+        nodeEnv: process.env.NODE_ENV,
+        hasToken: !!process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN,
+        tokenLength: process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN?.length,
+      });
+
       try {
+        console.log("📡 Skickar GraphQL query...");
         const { data } = await client.query({
           query: gql`
             query MyQuery {
@@ -33,11 +41,16 @@ const PortfolioPage: React.FC = () => {
           `,
           fetchPolicy: "network-only",
         });
+
+        console.log("📊 Rådata från API:", data);
+
         if (!data?.allPortfolioWorks) {
-          console.error("No data.allPortfolioWorks returned", data);
+          console.error("❌ No data.allPortfolioWorks returned", data);
           setPortfolioWorks([]);
           return;
         }
+
+        console.log(`✅ Hittade ${data.allPortfolioWorks.length} projekt`);
 
         const works = data.allPortfolioWorks.map((work: PortfolioProject) => {
           const github = work.githubName || "";
@@ -54,9 +67,16 @@ const PortfolioPage: React.FC = () => {
           };
         });
 
+        console.log("🎯 Processade projekt:", works);
         setPortfolioWorks(works);
       } catch (err) {
-        console.error("Failed to fetch portfolio works:", err);
+        console.error("💥 Failed to fetch portfolio works:", err);
+        if (err instanceof Error) {
+          console.error("Error details:", {
+            message: err.message,
+            stack: err.stack,
+          });
+        }
         setPortfolioWorks([]);
       }
     };

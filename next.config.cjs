@@ -1,7 +1,11 @@
-module.exports = {
-  presets: ["next/babel"],
-  plugins: [["styled-components", { ssr: true }]],
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  compiler: {
+    styledComponents: true,
+  },
   experimental: {
-    outputStandalone: true,
+    esmExternals: true,
   },
 };
+
+module.exports = nextConfig;
