@@ -15,13 +15,12 @@ export const PortfolioWrapper = styled.div`
 
 export const SectionContainer = styled.nav`
   cursor: pointer;
-  display: flex;
+  display: grid;
+  justify-self: center;
+  grid-template-columns: 33% 33% 33%;
   width: 100%;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
   background-color: ${colors.primary};
-  position: relative;
 
   &:hover {
     background-color: ${colors.secondaryLight};
@@ -30,41 +29,46 @@ export const SectionContainer = styled.nav`
 `;
 
 export const AccordionContent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
   width: 100%;
 `;
 
 export const ArrowIcon = styled.svg<{ isOpen: boolean }>`
-  position: absolute;
-  right: 20px;
+  grid-column: 3;
+  justify-self: center;
   height: 16px;
-  width: 16px;
   transition: transform 0.3s ease;
   transform: ${(props) => (props.isOpen ? "rotate(0deg)" : "rotate(180deg)")};
   user-select: none;
   fill: ${colors.secondaryDark};
 
   ${desktopStyles} {
-    right: 40px;
+    justify-self: start;
     height: 18px;
-    width: 18px;
+  }
+`;
+
+export const RightArrowIcon = styled.svg`
+  grid-column: 3;
+  justify-self: center;
+  height: 16px;
+  fill: ${colors.secondaryDark};
+
+  ${desktopStyles} {
+    justify-self: start;
+    height: 18px;
   }
 `;
 
 export const ProjectText = styled.div`
+  grid-column: 2;
+  justify-self: center;
   color: ${colors.secondaryDark};
   font-family: "lemon";
   font-size: 50px;
-  margin: 0 10px;
-  position: relative;
   padding: 10px 0;
 
   ${desktopStyles} {
     font-size: 90px;
-    margin: 0 30px;
     padding: 15px 0;
   }
 `;

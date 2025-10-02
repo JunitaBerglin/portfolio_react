@@ -12,7 +12,7 @@ import AnimatedArrowComponent from "../Home/Animation/Arrow";
 import PortfolioWork from "../PortfolioWork/PortfolioWork";
 import { About } from "../about/about";
 import { Contact } from "../contact/Contact";
-import { ProjectTextCV } from "../CV/cv.styles";
+import { ProjectTextCV, RightArrowIcon } from "../CV/cv.styles";
 
 const PortfolioAccordion: React.FC<PortfolioProps> = ({ projectItems }) => {
   const [openSection, setOpenSection] = useState<SectionName>(null);
@@ -52,6 +52,9 @@ const PortfolioAccordion: React.FC<PortfolioProps> = ({ projectItems }) => {
       {openSection === "contact" && <Contact />}
       <SectionContainer>
         <ProjectTextCV href="/Junita_Berglin_CV.pdf">CV</ProjectTextCV>
+        <RightArrowIcon viewBox="0 0 24 24">
+          <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+        </RightArrowIcon>
       </SectionContainer>
     </PortfolioWrapper>
   );

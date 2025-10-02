@@ -7,13 +7,13 @@ export const ContactSection = styled.section`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  max-width: 100vw;
   font-family: "thin";
+  min-width: 100vw;
+  margin: 0 auto;
 `;
 
 export const Title = styled.h2`
   font-size: 30px;
-  width: 80%;
   padding: 30px;
 
   ${desktopStyles} {
@@ -28,9 +28,6 @@ export const Text = styled.div`
   padding: 20px 10px;
   font-size: 16px;
   text-align: center;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
 
   ${desktopStyles} {
     font-size: 20px;
@@ -39,12 +36,15 @@ export const Text = styled.div`
 `;
 
 export const Form = styled.form`
-  width: 90%;
-  max-width: 600px;
   text-align: center;
   margin: 0 auto;
   padding: 0 15px;
-  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+
+  ${desktopStyles} {
+    max-width: 700px;
+  }
 `;
 
 export const FormContainer = styled.div`
@@ -66,7 +66,6 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   width: 100%;
-  max-width: 500px;
   height: 40px;
   border-radius: 5px;
   border: none;
@@ -76,13 +75,11 @@ export const Input = styled.input`
 
   ${desktopStyles} {
     height: 45px;
-    max-width: 600px;
   }
 `;
 
 export const TextArea = styled.textarea`
   width: 100%;
-  max-width: 500px;
   height: 150px;
   border-radius: 5px;
   border: none;
@@ -93,6 +90,5 @@ export const TextArea = styled.textarea`
 
   ${desktopStyles} {
     height: 180px;
-    max-width: 600px;
   }
 `;

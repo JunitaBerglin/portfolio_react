@@ -1,8 +1,8 @@
 import { css } from "styled-components";
 
 export const colors = {
-  primary: "#FBE1DB",
-  secondaryLight: "#f0e0dc",
+  primary: "#FCEBE7",
+  secondaryLight: "#f4e6e2",
   secondaryDark: "#1A4735",
 };
 

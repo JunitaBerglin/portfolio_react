@@ -73,10 +73,10 @@ const Eyelid = styled.div`
   position: absolute;
   width: 24px;
   height: 24px;
-  background-color: #f8e6e3;
+  background-color: #fcebe7;
   border-radius: 50%;
   animation: ${eyelidBlink} 4s infinite;
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
   top: 0;
   left: 0;
@@ -92,6 +92,33 @@ const Eyelid = styled.div`
   }
 `;
 
+const Eyeliner = styled.div`
+  position: absolute;
+  width: 24px;
+  height: 12px;
+  border-radius: 0 0 12px 12px;
+  background-color: #1a4735;
+  animation: ${eyelidBlink} 4s infinite;
+  z-index: 2;
+  pointer-events: none;
+  top: 12px;
+  left: 0;
+
+  @media (min-width: 480px) {
+    width: 35px;
+    height: 17.5px;
+    border-radius: 0 0 17.5px 17.5px;
+    top: 17.5px;
+  }
+
+  @media (min-width: 768px) {
+    width: 75px;
+    height: 37.5px;
+    border-radius: 0 0 37.5px 37.5px;
+    top: 37.5px;
+  }
+`;
+
 export default function EyeComponent() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const eyeRef = useRef<HTMLDivElement>(null);
@@ -103,8 +130,27 @@ export default function EyeComponent() {
         eyeRef.current.getBoundingClientRect();
       const eyeCenterX = left + width / 2;
       const eyeCenterY = top + height / 2;
-      const deltaX = (clientX - eyeCenterX) * 0.08;
-      const deltaY = (clientY - eyeCenterY) * 0.08;
+
+      // Beräkna delta med begränsning
+      let deltaX = (clientX - eyeCenterX) * 0.08;
+      let deltaY = (clientY - eyeCenterY) * 0.08;
+
+      // Pupillstorlek baserat på skärmstorlek
+      const pupilRadius = width <= 24 ? 9 : width <= 35 ? 14 : 32;
+      const eyeRadius = width / 2;
+
+      // Maximal rörelse: pupillen måste vara minst 40% synlig
+      // Det betyder att centrum kan röra sig max (eyeRadius - pupilRadius * 0.6)
+      const maxMovement = eyeRadius - pupilRadius * 0.6;
+
+      // Clampa värdena
+      const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+      if (distance > maxMovement) {
+        const ratio = maxMovement / distance;
+        deltaX *= ratio;
+        deltaY *= ratio;
+      }
+
       setMousePosition({ x: deltaX, y: deltaY });
     }
   };
@@ -125,9 +171,13 @@ export default function EyeComponent() {
       <Eye
         ref={eyeRef}
         style={{
-          backgroundPosition: `calc(50% + ${mousePosition.x}px) calc(50% + ${mousePosition.y}px)`,
+          backgroundPosition:
+            mousePosition.x === 0 && mousePosition.y === 0
+              ? "center"
+              : `calc(50% + ${mousePosition.x}px) calc(50% + ${mousePosition.y}px)`,
         }}
       />
+      <Eyeliner />
       <Eyelid />
     </EyeContainer>
   );
