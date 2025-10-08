@@ -48,7 +48,7 @@ const BackgroundCircle = styled.div`
   position: absolute;
   width: 30px;
   height: 30px;
-  background-color: #fcebe7;
+  background-color: #1a4735;
   border-radius: 50%;
   z-index: 0;
 
