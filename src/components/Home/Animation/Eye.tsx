@@ -14,7 +14,7 @@ const eyelidBlink = keyframes`
 export const EyeWrapper = styled.div`
   position: absolute;
   left: 50%;
-  top: calc(50% - 7px);
+  top: calc(50% - 10px);
   transform: translate(-50%, -50%);
   width: 24px;
   height: 24px;
@@ -31,7 +31,7 @@ export const EyeWrapper = styled.div`
   @media (min-width: 768px) {
     width: 75px;
     height: 75px;
-    top: calc(50% - 24px);
+    top: calc(50% - 26px);
   }
 `;
 
