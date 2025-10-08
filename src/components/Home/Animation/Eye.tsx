@@ -44,6 +44,25 @@ const EyeContainer = styled.div`
   justify-content: center;
 `;
 
+const BackgroundCircle = styled.div`
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #fcebe7;
+  border-radius: 50%;
+  z-index: 0;
+
+  @media (min-width: 480px) {
+    width: 41px;
+    height: 41px;
+  }
+
+  @media (min-width: 768px) {
+    width: 81px;
+    height: 81px;
+  }
+`;
+
 const Eye = styled.div`
   position: absolute;
   width: 24px;
@@ -54,6 +73,7 @@ const Eye = styled.div`
   background-position: center;
   border-radius: 50%;
   border: 1px solid #0d161b;
+  z-index: 1;
 
   @media (min-width: 480px) {
     width: 35px;
@@ -168,6 +188,7 @@ export default function EyeComponent() {
 
   return (
     <EyeContainer>
+      <BackgroundCircle />
       <Eye
         ref={eyeRef}
         style={{
