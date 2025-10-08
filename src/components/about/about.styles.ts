@@ -69,14 +69,14 @@ export const CardContentAbout = styled(CardFace)`
   position: absolute;
   color: #fff;
   font-family: "thin";
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.4;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   transform: rotateY(180deg);
-  padding: 25px 20px;
+  padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
 
