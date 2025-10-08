@@ -45,7 +45,8 @@ export const AboutCard = styled(Card)`
   width: 100%;
   min-width: 320px;
   max-width: 380px;
-  height: 230px;
+  height: auto;
+  min-height: 280px;
   border-radius: 10px;
   perspective: 1000px;
   box-shadow: 0 0 0 0px #ffffff80;
@@ -59,11 +60,12 @@ export const AboutCard = styled(Card)`
   ${desktopStyles} {
     width: 380px;
     margin: 20px;
+    min-height: 320px;
   }
 `;
 
 export const CardContentAbout = styled(CardFace)`
-  background-color: #000;
+  background-color: #215b42;
   position: absolute;
   color: #fff;
   font-family: "thin";
@@ -72,13 +74,14 @@ export const CardContentAbout = styled(CardFace)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   transform: rotateY(180deg);
-  padding: 15px;
+  padding: 25px 20px;
   box-sizing: border-box;
+  overflow-y: auto;
 
   ${desktopStyles} {
     font-size: 16px;
-    padding: 20px;
+    padding: 30px 30px;
   }
 `;
